@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+  {{> head }}
+  <body class="light">
+    <div class="wrapper">
+      {{> header }}
+      <main class="main">
+        <div class="breadcrumbs">
+          <div class="breadcrumbs__container">
+            <div class="breadcrumbs__inner col-12 row">
+              <div class="col-1 col-hidden"></div>
+              <ul class="breadcrumbs__list col-10">
+                <li class="breadcrumbs__item">
+                  <a class="breadcrumbs__link" href="">Малахов</a>
+                </li>
+                <li class="breadcrumbs__item">
+                  <a class="breadcrumbs__link" href="">Генплан</a>
+                </li>
+                <li class="breadcrumbs__item">
+                  <a class="breadcrumbs__link" href="">Выбор этажа</a>
+                </li>
+              </ul>
+              <div class="col-1 col-hidden"></div>
+            </div>
+          </div>
+        </div>
+        {{> appart-detail }}
+        {{> similar }}
+      </main>
+      {{> footer }}
+    </div>
+    <script type="module" src="../js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://api-maps.yandex.ru/v3/?apikey=d176ec1a-b884-4f13-8214-24154cf58189&lang=ru_RU"></script>
+  </body>
+</html>

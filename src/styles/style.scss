@@ -1,0 +1,28 @@
+// базовые подключения
+@import './settings';
+@import './mixins';
+@import './fonts';
+@import './vars';
+
+// компоненты страницы
+
+// подключения компонентов страницы (большие компоненты)
+@import './components/header';
+@import './components/hero';
+@import './components/detail-about';
+@import './components/deciding';
+@import './components/convenience';
+@import './components/safety';
+@import './components/dynamics';
+@import './components/purchase';
+@import './components/location';
+@import './components/documents';
+@import './components/news';
+@import './components/apartment';
+@import './components/breadcrumbs';
+@import './components/appart-detail.scss';
+@import './components/similar';
+@import './components/modal';
+@import './components/footer';
+
+// подключения компонентов страницы (маленькие компоненты)

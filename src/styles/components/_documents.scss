@@ -1,0 +1,43 @@
+.documents {
+
+		&__container {
+		}
+
+		&__inner {
+		}
+
+		&__info {
+      @media (max-width:1250px) {
+        width: 100%;
+      }
+		}
+
+		&__list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+		}
+
+		&__item {
+		}
+
+		&__link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #26202E;
+      font-size: 16px;
+			transition: color .2s ease;
+			&:hover {
+				color: #625B6D;
+			}
+		}
+}
+.section {
+}
+.col-1 {
+}
+.col-10 {
+}
+.row {
+}
