@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bart</title>
+    <link rel="icon" href="/public/fav.png" type="image/svg+xml">
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+    
+    <script type="module" crossorigin src="/bart/assets/js/index.js"></script>
+    <link rel="modulepreload" crossorigin href="/bart/assets/js/vendor.js">
+    <link rel="stylesheet" href="/bart/assets/css/style.css">
+  </head>  <body>
+    <div class="wrapper">
+      <header class='header' id='header'>
+        <div class='header__container'>
+          <a href='/bart/index.html' class='header__logo logo'>
+            <svg
+              width='156'
+              height='24'
+              viewBox='0 0 156 24'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <g clip-path='url(#clip0_2001_1978)'>
+                <path
+                  fill-rule='evenodd'
+                  clip-rule='evenodd'
+                  d='M37.8171 23.6997H58.9277L62.2514 17.918H50.5052L57.3907 6.75342L66.9039 23.701H79.2232L65.1392 -0.00146103H52.8198L37.8159 23.6997H37.8171ZM82.4318 -0.00146103L79.1068 5.78027H84.4592V23.6997H95.0901V17.5256H107.635C121.068 17.5256 121.039 -0.00146103 107.635 -0.00146103L82.4318 -0.00146103ZM95.0901 11.7439V5.78027H102.978C108.232 5.78027 108.164 11.7439 102.978 11.7439H95.0901ZM0 23.6997H26.8873C38.3774 23.6997 38.3696 9.02583 27.1034 9.02583H10.631V5.78027H32.1607L35.4845 -0.00146103H0V23.6997ZM10.631 17.918V14.1151H22.6114C25.5638 14.1151 25.4318 17.918 22.6114 17.918H10.631ZM155.253 -0.00146103H122.394L119.07 5.78027H131.848V23.6997H142.479V5.78027H151.931L155.255 -0.00146103H155.253Z'
+                  fill='white'
+                />
+              </g>
+              <defs>
+                <clipPath id='clip0_2001_1978'>
+                  <rect width='155.253' height='23.6011' fill='white' />
+                </clipPath>
+              </defs>
+            </svg>
+          </a>
+          <nav class='header__menu menu'>
+            <div class='menu__icon'>
+              <span></span>
+            </div>
+            <div class='menu__body'>
+              <ul class='menu__list'>
+                <li class='menu__item'>
+                  <a data-goto='.objects' href='' class='menu__link'>
+                    Объекты
+                  </a>
+                </li>
+                <li class='menu__item'>
+                  <a data-goto='.flats' href='' class='menu__link'>
+                    Квартиры
+                  </a>
+                </li>
+                <li class='menu__item'>
+                  <a data-goto='.about' href='' class='menu__link'>
+                    О компании
+                  </a>
+                </li>
+                <li class='menu__item'>
+                  <a data-goto='.news' href='' class='menu__link'>
+                    Новости
+                  </a>
+                </li>
+                <li class='menu__item'>
+                  <a data-goto='.contcts' href='' class='menu__link'>
+                    Контакты
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <div class='header__right'>
+            <div class='header__love'>
+              <svg
+                width='24'
+                height='21'
+                viewBox='0 0 24 21'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path
+                  d='M12.4599 1.8613C14.9417 -0.620435 18.9655 -0.620435 21.4472 1.8613C23.9288 4.34306 23.9289 8.36694 21.4472 10.8486L20.6406 11.6533L20.6523 11.665L11.665 20.6523L11.6533 20.6406L11.6425 20.6523L2.65524 11.665L2.66599 11.6533L1.8613 10.8486C-0.620437 8.36687 -0.620428 4.34304 1.8613 1.8613C4.34304 -0.620435 8.36686 -0.620435 10.8486 1.8613L11.6533 2.66599L12.4599 1.8613Z'
+                  fill='#928D9D'
+                />
+              </svg>
+              <span class='header__love--count'>2</span>
+            </div>
+            <div class='header__info'>
+              <a class='header__phone' href=''>8 (3852) 566-766</a>
+              <a class='js-open-call header__call' href=''>Заказать звонок</a>
+            </div>
+          </div>
+        </div>
+        <script>
+          (function(){if(window.innerWidth>=1250)return;var i=document.querySelector('.header__info');var
+          m=document.querySelector('.menu__body');if(i&&m)m.appendChild(i);})();
+        </script>
+      </header>      <main class="main">
+        <section class='hero' id='hero'>
+          <div class='hero__content'>
+            <div class='hero__container'>
+              <div class='hero__wrapper pl-1'>
+                <h1 class='hero__title'>Жилой комплекс &laquo;Малахов&raquo;</h1>
+                <div class='hero__info'>
+                  <span class='hero__adress'>Барнаул, ул. Малахова, 134Б</span>
+                  <span class='hero__date'>3 квартал 2029</span>
+                  <a class='hero__link' href=''>
+                    126 квартир
+                    <svg
+                      width='11'
+                      height='18'
+                      viewBox='0 0 11 18'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
+                    >
+                      <path
+                        d='M0.707031 16.7071L8.70703 8.70709L0.707031 0.707092'
+                        stroke='#EAE8EC'
+                        stroke-width='2'
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class='hero__img'>
+                <img src='/bart/assets/img/hero__img.jpg' alt='' />
+              </div>
+            </div>
+          </div>
+          <svg class="hero__decor" width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1920 166.32V175.1L0 1080V1025.85L1920 166.32ZM1920 151.2V159.98L0 986.74V932.59L1920 151.2ZM1920 136.08V144.86L0 893.48V839.33L1920 136.08ZM1920 120.96V129.74L0 800.22V746.07L1920 120.96ZM1920 105.84V114.62L0 706.96V652.81L1920 105.84ZM1920 90.72V99.5L0 613.7V559.55L1920 90.72ZM1920 75.6V84.38L0 520.45V466.3L1920 75.6ZM1920 60.48V69.26L0 427.19V373.04L1920 60.48ZM1920 45.36V54.14L0 333.93V279.78L1920 45.36ZM1920 30.24V39.02L0 240.67V186.52L1920 30.24ZM1920 0V8.78003L0 54.15V0H1920ZM0 147.41V93.26L1920 15.12V23.9L0 147.41Z" fill="#383242"/>
+            </svg>
+            <svg class="hero__decor--big" width="2500" height="1080" viewBox="0 0 2500 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M2500 166.32V175.1L-7.62939e-05 1080V1025.85L2500 166.32ZM2500 151.2V159.98L-7.62939e-05 986.74V932.59L2500 151.2ZM2500 136.08V144.86L-7.62939e-05 893.48V839.33L2500 136.08ZM2500 120.96V129.74L-7.62939e-05 800.22V746.07L2500 120.96ZM2500 105.84V114.62L-7.62939e-05 706.96V652.81L2500 105.84ZM2500 90.72V99.5L-7.62939e-05 613.7V559.55L2500 90.72ZM2500 75.6V84.38L-7.62939e-05 520.45V466.3L2500 75.6ZM2500 60.48V69.26L-7.62939e-05 427.19V373.04L2500 60.48ZM2500 45.36V54.14L-7.62939e-05 333.93V279.78L2500 45.36ZM2500 30.24V39.02L-7.62939e-05 240.67V186.52L2500 30.24ZM2500 0V8.78003L-7.62939e-05 54.15V0H2500ZM-7.62939e-05 147.41V93.26L2500 15.12V23.9L-7.62939e-05 147.41Z" fill="#383242"/>
+            </svg>
+        
+        
+        </section>        <section class="detail-about section">
+          <div class="detail-about__container">
+            <div class="col-12 row section__wrapper detail-about__wrapper">
+              <div class="col-1 col-hidden"></div>
+              <p class="section-text col-5">
+                &laquo;Малахов&raquo;&nbsp;&mdash; жилой дом комфорт-класса. Находится в&nbsp;тихой локации Индустриального района. Среди преимуществ проекта выделяется устоявшаяся инфраструктура и&nbsp;превосходная транспортная доступность.
+              </p>
+              <div class="col-1 col-hidden"></div>
+              <ul class="detail-property col-4">
+                <li class="detail-property__item">
+                  <span class="detail-property__value">180</span>
+                  <span class="detail-property__descr">квартир</span>
+                </li>
+                <li class="detail-property__item">
+                  <span class="detail-property__value">17</span>
+                  <span class="detail-property__descr">этажей</span>
+                </li>
+                <li class="detail-property__item">
+                  <span class="detail-property__value">46—69 м²</span>
+                  <span class="detail-property__descr">площадь квартир</span>
+                </li>
+              </ul>
+              <div class="col-1 col-hidden"></div>
+            </div>
+            <div class="detail-about__list col-12 row">
+              <div class="col-8 detail-about__list--left">
+                <div class="detail-about__item">
+                  <div class="detail-about__img detail-about__img--big">
+                    <img src="/bart/assets/img/detail-big.jpg" alt="">
+                  </div>
+                  <div class="detail-about__info">
+                    <h2 class="detail-about__head">Развитая инфраструктура района</h2>
+                    <div class="detail-about__text-wrap">
+                      <p class="detail-about__text">Район жилого комплекса &laquo;Малахов&raquo; отличается богатой и&nbsp;разнообразной инфраструктурой, которая сделает жизнь здесь удобной и&nbsp;комфортной для всех жителей.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="detail-about__images">
+                  <div class="detail-about__item">
+                    <div class="detail-about__img detail-about__img--small">
+                      <img src="/bart/assets/img/detail-small.jpg" alt="">
+                    </div>
+                    <div class="detail-about__info">
+                      <h3 class="detail-about__head">Развитая инфраструктура района</h3>
+                      <div class="detail-about__text-wrap">
+                        <p class="detail-about__text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="detail-about__item">
+                    <div class="detail-about__img detail-about__img--small">
+                      <img src="/bart/assets/img/detail-small.jpg" alt="">
+                    </div>
+                    <div class="detail-about__info">
+                      <h3 class="detail-about__head">Развитая инфраструктура района</h3>
+                      <div class="detail-about__text-wrap">
+                        <p class="detail-about__text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+              <div class="col-4 detail-about__list--right">
+                <div class="detail-about__images">
+                  <div class="detail-about__item detail-about--medium--text">
+                    <div class="detail-about__img detail-about__img--medium">
+                      <img src="/bart/assets/img/detail-medium.jpg" alt="">
+                    </div>
+                    <div class="detail-about__info">
+                      <h3 class="detail-about__head">Развитая инфраструктура района</h3>
+                      <div class="detail-about__text-wrap">
+                        <p class="detail-about__text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="detail-about__item detail-about--medium--text">
+                    <div class="detail-about__img detail-about__img--medium">
+                      <img src="/bart/assets/img/detail-medium.jpg" alt="">
+                    </div>
+                    <div class="detail-about__info">
+                      <h3 class="detail-about__head">Развитая инфраструктура района</h3>
+                      <div class="detail-about__text-wrap">
+                        <p class="detail-about__text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>        <section class="apartment section">
+          <svg class="apartment__decor" width="1512" height="966" viewBox="0 0 1512 966" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.14302e-05 148.733L7.07438e-05 156.585L1714.92 965.8L1714.92 917.376L7.14302e-05 148.733ZM7.26123e-05 135.212L7.19259e-05 143.064L1714.92 882.401L1714.92 833.977L7.26123e-05 135.212ZM7.37944e-05 121.691L7.31079e-05 129.542L1714.92 799.003L1714.92 750.579L7.37944e-05 121.691ZM7.49764e-05 108.17L7.429e-05 116.021L1714.92 715.604L1714.92 667.18L7.49764e-05 108.17ZM7.61585e-05 94.6484L7.54721e-05 102.5L1714.92 632.206L1714.92 583.781L7.61585e-05 94.6484ZM7.73405e-05 81.1271L7.66541e-05 88.9788L1714.92 548.807L1714.92 500.383L7.73405e-05 81.1271ZM7.85226e-05 67.606L7.78362e-05 75.4576L1714.92 465.417L1714.92 416.993L7.85226e-05 67.606ZM7.97047e-05 54.0848L7.90182e-05 61.9364L1714.92 382.019L1714.92 333.595L7.97047e-05 54.0848ZM8.08867e-05 40.5635L8.02003e-05 48.4152L1714.92 298.62L1714.92 250.196L8.08867e-05 40.5635ZM8.20688e-05 27.0424L8.13824e-05 34.894L1714.92 215.221L1714.92 166.797L8.20688e-05 27.0424ZM8.44329e-05 0L8.37465e-05 7.85162L1714.92 48.4243L1714.92 0.000149923L8.44329e-05 0ZM1714.92 131.823L1714.92 83.3988L8.32508e-05 13.5212L8.25644e-05 21.3728L1714.92 131.823Z" fill="#EAE8EC" fill-opacity="0.6"/>
+          </svg>
+        <svg class="apartment__decor--big" width="3024" height="1932" viewBox="0 0 3024 1932" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.00014289 297.528L0.000141517 313.234L3024 1932L3024 1835.13L0.00014289 297.528ZM0.000145255 270.48L0.000143882 286.186L3024 1765.17L3024 1668.3L0.000145255 270.48ZM0.000147619 243.432L0.000146246 259.138L3024 1598.34L3024 1501.47L0.000147619 243.432ZM0.000149984 216.384L0.000148611 232.09L3024 1431.51L3024 1334.64L0.000149984 216.384ZM0.000152349 189.336L0.000150975 205.042L3024 1264.67L3024 1167.8L0.000152349 189.336ZM0.000154713 162.288L0.00015334 177.994L3024 1097.84L3024 1000.97L0.000154713 162.288ZM0.000157078 135.24L0.000155705 150.946L3024 931.028L3024 834.159L0.000157078 135.24ZM0.000159442 108.192L0.000158069 123.898L3024 764.196L3024 667.327L0.000159442 108.192ZM0.000161807 81.1439L0.000160434 96.8504L3024 597.364L3024 500.496L0.000161807 81.1439ZM0.000164172 54.0959L0.000162799 69.8024L3024 430.532L3024 333.664L0.000164172 54.0959ZM0.000168901 -5.91278e-05L0.000167528 15.7064L3024 96.8686L3024 0.000205239L0.000168901 -5.91278e-05ZM3024 263.7L3024 166.832L0.000166536 27.0479L0.000165163 42.7544L3024 263.7Z" fill="#EAE8EC" fill-opacity="0.6"/>
+        </svg>
+        
+        
+          <div class="apartment__container">
+            <div class="apartment__inner col-12 row">
+              <div class="col-1 col-hidden"></div>
+              <h2 class="col-10 section__title">Выбрать квартиру</h2>
+              <div class="col-1 col-hidden"></div>
+            </div>
+            <div class="apartment__info">
+              <div class="apartment__img">
+                <svg class="apartments__genplan genplan" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid" style="display: block;">
+                  <image xlink:href="https://peremenakvartal.ru/local/templates/peremenakvartal/img/floors.jpg" width="1920" height="1080"></image>
+                    <a class="genplan__link" href="/bart/src/pages/appart.html" data-floor="1" data-free-flats="25">
+                      <polygon points="1196.13,958.26 492.81,926.6 279,932.2 279,1033 496,1049 1194,1022 1639,1035 1698,1020 1698,940.36 1639.64,952.5">
+                      </polygon>
+                    </a>
+                    <a class="genplan__link" href="/bart/src/pages/appart.html" data-floor="2" data-free-flats="26">
+                      <polygon points="1196.2,911.81 493,849.69 279,861.3 279,932.2 492.81,926.6 1196.13,958.26 1639.64,952.5 1698,940.36 1698,893.29 1640.8,898.28">
+                      </polygon>
+                    </a>
+                    <a class="genplan__link" href="/bart/src/pages/appart.html" data-floor="3" data-free-flats="26">
+                      <polygon points="1197.3,871.53 491.5,770.61 279,796.03 279,861.3 493,849.69 1196.2,911.81 1640.8,898.28 1698,893.29 1698,850.51 1641.7,848.1">
+                      </polygon>
+                    </a>
+                    <a class="genplan__link" href="/bart/src/pages/appart.html" data-floor="4" data-free-flats="26">
+                      <polygon points="1198.4,832.92 490,693.2 279,732.42 279,796.03 491.5,770.61 1197.3,871.53 1641.7,848.1 1698,850.51 1698,809.4 1642.6,799.59">
+                      </polygon>
+                    </a>
+                    <a class="genplan__link" href="/bart/src/pages/appart.html" data-floor="5" data-free-flats="26">
+                      <polygon points="1199.5,791.74 488.5,613.22 279,666.25 279,732.42 490,693.2 1198.4,832.92 1642.6,799.59 1698,809.4 1698,765.72 1643.5,748.51">
+                      </polygon>
+                    </a>
+                    <a class="genplan__link" href="/bart/src/pages/appart.html" data-floor="6" data-free-flats="26">
+                      <polygon points="1200.6,752.07 487,534.75 279,601.58 279,666.25 488.5,613.22 1199.5,791.74 1643.5,748.51 1698,765.72 1698,723.55 1644.4,698.93">
+                      </polygon>
+                    </a>
+                    <a class="genplan__link" href="/bart/src/pages/appart.html" data-floor="7" data-free-flats="26">
+                      <polygon points="1200.98,702.48 485.5,456.8 279,537.44 279,601.58 487,534.75 1200.6,752.07 1644.4,698.93 1698,723.55 1698,681.9 1645.3,649.89">
+                      </polygon>
+                    </a>
+                    <a class="genplan__link" href="/bart/src/pages/appart.html" data-floor="8" data-free-flats="26">
+                      <polygon points="1200.98,662.76 484,372.58 279,467.03 279,537.44 485.5,456.8 1200.98,702.48 1645.3,649.89 1698,681.9 1698,643.41 1646.93,602.87">
+                      </polygon>
+                    </a>
+                    <a class="genplan__link" href="/bart/src/pages/appart.html" data-floor="9" data-free-flats="26">
+                      <polygon points="1203.9,629.42 482.5,295.7 279,403.95 279,467.03 484,372.58 1200.98,662.76 1646.93,602.87 1698,643.41 1698,608.53 1647.1,546.59">
+                      </polygon>
+                    </a>
+                    <a class="genplan__link" href="/bart/src/pages/appart.html" data-floor="10" data-free-flats="26">
+                      <polygon points="1648,487 1205,573 481,212 279,334.06 279,403.95 482.5,295.7 1203.9,629.42 1647.1,546.59 1698,608.53 1698,546">
+                      </polygon>
+                    </a>
+                  </svg>
+              </div>
+              <div class="genplan-tooltip" id="genplan-tooltip" aria-hidden="true" role="tooltip">
+                <span class="genplan-tooltip__floor"></span>
+                <span class="genplan-tooltip__count"></span>
+              </div>
+            </div>
+        
+          </div>
+        </section>        <section class='deciding section'>
+          <div class='deciding__container col-12 row'>
+            <div class='col-1 col-hidden'></div>
+            <div class='col-10 deciding__info'>
+              <h2>Непросто определиться?</h2>
+              <p class='section-text deciding__text'>
+                Закажите обратный звонок и&nbsp;получите консультацию по&nbsp;всем акциям и&nbsp;самым
+                выгодным предложениям.
+              </p>
+              <a class='btn btn-reset btn-accent js-open-call' href=''>Заказать звонок</a>
+            </div>
+            <div class='col-1 col-hidden'></div>
+          </div>
+        </section>        <section class="convenience section">
+          <div class="convenience__container">
+            <h2 class="pl-1">Все для вашего удобства</h2>
+            <ul class="convenience__list">
+              <li class="convenience__item">
+                <a class="convenience__link" href="">
+                  <div class="convenience__info">
+                    <h3 class="convenience__title">Закрытый паркинг</h3>
+                    <span class="convenience__value">41</span>
+                  </div>
+                  <img class="convenience__img" src="/bart/assets/img/test.png" alt="">
+                  <span class="convenience__price">от 900 000 ₽</span>
+                </a>
+              </li>
+              <li class="convenience__item">
+                <a class="convenience__link" href="">
+                  <div class="convenience__info">
+                    <h3 class="convenience__title">Закрытый паркинг</h3>
+                    <span class="convenience__value">41</span>
+                  </div>
+                  <img class="convenience__img" src="/bart/assets/img/test.png" alt="">
+                  <span class="convenience__price">от 900 000 ₽</span>
+                </a>
+              </li>
+              <li class="convenience__item">
+                <a class="convenience__link" href="">
+                  <div class="convenience__info">
+                    <h3 class="convenience__title">Закрытый паркинг</h3>
+                    <span class="convenience__value">41</span>
+                  </div>
+                  <img class="convenience__img" src="/bart/assets/img/test.png" alt="">
+                  <span class="convenience__price">от 900 000 ₽</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>        <section class="safety section">
+          <div class="safety__container">
+            <h2 class="safety__title pl-1">Территория</h2>
+            <div class="safety__info col-12 row">
+              <div class="col-1 col-hidden"></div>
+              <div class="safety__img col-6">
+                <img src="/bart/assets/img/safety.jpg" alt="">
+              </div>
+              <div class="col-1 col-hidden"></div>
+              <div class="safety__text col-3">
+                <p>Продуманное пространство для жизни, где каждая деталь на&nbsp;своем месте.</p>
+                <p>Мы&nbsp;предусмотрели безопасную площадку с&nbsp;игровыми комплексами и&nbsp;местом для занятий физической активностью.</p>
+                <p>Наземная парковка позволит расположиться жителям дома и&nbsp;гостям.</p>
+              </div>
+              <div class="col-1 col-hidden"></div>
+        
+            </div>
+            <svg class="safety__decor" width="1920" height="1079" viewBox="0 0 1920 1079" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 912.458V903.69L1920 0V54.0776L0 912.458ZM0 927.558V918.79L1920 93.1353V147.213L0 927.558ZM0 942.658V933.89L1920 186.271V240.348L0 942.658ZM0 957.758V948.99L1920 279.406V333.484L0 957.758ZM0 972.858V964.089L1920 372.541V426.619L0 972.858ZM0 987.957V979.189L1920 465.677V519.754L0 987.957ZM0 1003.06V994.289L1920 558.802V612.88L0 1003.06ZM0 1018.16V1009.39L1920 651.937V706.015L0 1018.16ZM0 1033.26V1024.49L1920 745.073V799.15L0 1033.26ZM0 1048.36V1039.59L1920 838.208V892.286L0 1048.36ZM0 1078.56V1069.79L1920 1024.48V1078.56H0ZM1920 931.343V985.421L0 1063.46V1054.69L1920 931.343Z" fill="#383242"/>
+            </svg>
+          </div>
+        </section>        <section class="dynamics section">
+          <div class="dynamics__container">
+            <div class="dynamics__inner col-12 row">
+              <div class="col-1 col-hidden"></div>
+              <div class="col-10 dynamics__info">
+                <h2>Динамика строительства</h2>
+                <div class="dynamics__wrapper">
+                  <ul class="dynamics__years">
+                    <li>
+                      <a class="active" href="#" data-year="2026">2026</a>
+                    </li>
+                    <li>
+                      <a href="#" data-year="2025">2025</a>
+                    </li>
+                    <li>
+                      <a href="#" data-year="2024">2024</a>
+                    </li>
+                  </ul>
+                  <div class="dynamics-nav">
+                    <div class="dynamics-prev swip-icon">
+                      <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.41406 0.707031L1.41406 8.70703L9.41406 16.707" stroke="#26202E" stroke-width="2"/>
+                      </svg>
+                    </div>
+                    <div class=" dynamics-next swip-icon">
+                      <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.707028 16.707L8.70703 8.70703L0.707031 0.707031" stroke="#26202E" stroke-width="2"/>
+                      </svg>
+                    </div>
+        
+                  </div>
+                </div>
+        
+                <div class="swiper dynamics-swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide dynamics-slide" data-year="2026">
+                      <a class="dynamics-gallery" href="#" data-gallery='["/public/img/dynamics/fev.jpg","/public/img/dynamics/fev.jpg","/public/img/dynamics/fev.jpg","/public/img/dynamics/fev.jpg","/public/img/dynamics/fev.jpg"]'>
+                        <div class="dynamics__img">
+                          <div class="dynamics__img-inner">
+                            <img src="/bart/assets/img/fev.jpg" alt="">
+                          </div>
+                        </div>
+                        <h3 class="dynamics__head">Февраль</h3>
+                        <span class="dynamics__value">5 фото</span>
+                      </a>
+                    </div>
+                    <div class="swiper-slide dynamics-slide" data-year="2026">
+                      <a class="dynamics-gallery" href="#" data-gallery='["/public/img/dynamics/fev.jpg","/public/img/dynamics/fev.jpg"]'>
+                        <div class="dynamics__img">
+                          <div class="dynamics__img-inner">
+                            <img src="/bart/assets/img/fev.jpg" alt="">
+                          </div>
+                        </div>
+                        <h3 class="dynamics__head">Март</h3>
+                        <span class="dynamics__value">2 фото</span>
+                      </a>
+                    </div>
+                    <div class="swiper-slide dynamics-slide" data-year="2025">
+                      <a class="dynamics-gallery" href="#" data-gallery='["/public/img/dynamics/fev.jpg","/public/img/dynamics/fev.jpg","/public/img/dynamics/fev.jpg"]'>
+                        <div class="dynamics__img">
+                          <div class="dynamics__img-inner">
+                            <img src="/bart/assets/img/fev.jpg" alt="">
+                          </div>
+                        </div>
+                        <h3 class="dynamics__head">Февраль</h3>
+                        <span class="dynamics__value">3 фото</span>
+                      </a>
+                    </div>
+                    <div class="swiper-slide dynamics-slide" data-year="2025">
+                      <a class="dynamics-gallery" href="#" data-gallery='["/public/img/dynamics/fev.jpg","/public/img/dynamics/fev.jpg","/public/img/dynamics/fev.jpg","/public/img/dynamics/fev.jpg","/public/img/dynamics/fev.jpg","/public/img/dynamics/fev.jpg"]'>
+                        <div class="dynamics__img">
+                          <div class="dynamics__img-inner">
+                            <img src="/bart/assets/img/fev.jpg" alt="">
+                          </div>
+                        </div>
+                        <h3 class="dynamics__head">Январь</h3>
+                        <span class="dynamics__value">6 фото</span>
+                      </a>
+                    </div>
+                    <div class="swiper-slide dynamics-slide" data-year="2024">
+                      <a class="dynamics-gallery" href="#" data-gallery='["/public/img/dynamics/fev.jpg","/public/img/dynamics/fev.jpg","/public/img/dynamics/fev.jpg","/public/img/dynamics/fev.jpg"]'>
+                        <div class="dynamics__img">
+                          <div class="dynamics__img-inner">
+                            <img src="/bart/assets/img/fev.jpg" alt="">
+                          </div>
+                        </div>
+                        <h3 class="dynamics__head">Февраль</h3>
+                        <span class="dynamics__value">4 фото</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+        
+              </div>
+              <div class="col-1 col-hidden"></div>
+            </div>
+          </div>
+        </section>        <section class="purchase section">
+          <div class="purchase__container">
+            <div class="purchase__inner col-12 row">
+              <div class="col-1 col-hidden"></div>
+              <h2 class="col-10 purchase__title">Способы покупки</h2>
+              <div class="col-1 col-hidden"></div>
+            </div>
+            <ul class="purchase__list">
+              <li class="purchase__item">
+                <div class="purchase__info">
+                  <h3 class="purchase__head">Ипотека</h3>
+                  <p class="purchase__text">
+                    Аккредитация в&nbsp;лучших банках гарантирует для вас самые выгодные условия. Есть семейная ипотека.
+                  </p>
+                </div>  
+                <a class="purchase__sublink">
+                  Оставить заявку
+                  <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.707031 16.707L8.70703 8.70703L0.707031 0.707031" stroke="#AEAAB7" stroke-width="2"/>
+                  </svg>
+                </a>
+                <svg class="purchase__decor" width="447" height="545" viewBox="0 0 447 545" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M-598.287 571.271L-598.287 561.871L1399.35 -406.953L1399.35 -348.978L-598.287 571.271ZM-598.287 587.459L-598.287 578.059L1399.35 -307.105L1399.35 -249.13L-598.287 587.459ZM-598.287 603.647L-598.287 594.247L1399.35 -207.257L1399.35 -149.282L-598.287 603.647ZM-598.287 619.835L-598.287 610.435L1399.35 -107.409L1399.35 -49.4336L-598.287 619.835ZM-598.287 636.023L-598.287 626.623L1399.35 -7.56077L1399.35 50.4145L-598.287 636.023ZM-598.287 652.211L-598.287 642.811L1399.35 92.2873L1399.35 150.263L-598.287 652.211ZM-598.287 668.4L-598.287 658.999L1399.35 192.125L1399.35 250.1L-598.287 668.4ZM-598.287 684.588L-598.287 675.187L1399.35 291.973L1399.35 349.948L-598.287 684.588ZM-598.287 700.776L-598.287 691.375L1399.35 391.821L1399.35 449.796L-598.287 700.776ZM-598.287 716.964L-598.287 707.564L1399.35 491.669L1399.35 549.644L-598.287 716.964ZM-598.287 749.34L-598.287 739.94L1399.35 691.365L1399.35 749.341L-598.287 749.34ZM1399.35 591.517L1399.35 649.492L-598.287 733.152L-598.287 723.752L1399.35 591.517Z" fill="#383242"/>
+                </svg>
+        
+              </li>
+              <li class="purchase__item">
+                <div class="purchase__info">
+                  <h3 class="purchase__head">Материнский капитал</h3>
+                  <p class="purchase__text">
+                    Аккредитация в&nbsp;лучших банках гарантирует для вас самые выгодные условия. Есть семейная ипотека.
+                  </p>
+                </div>  
+                <a class="purchase__sublink">
+                  Оставить заявку
+                  <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.707031 16.707L8.70703 8.70703L0.707031 0.707031" stroke="#AEAAB7" stroke-width="2"/>
+                  </svg>
+                </a>
+                <svg class="purchase__decor" width="447" height="545" viewBox="0 0 447 545" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6109 545H-13.1734L-39.4634 502.339V454.686L10.6109 545ZM92.5357 545H68.7514L-39.4634 276.724V158.56L92.5357 545ZM133.498 545H109.714L-39.4634 42.6362V0H5.33585L133.498 545ZM174.461 545H150.676L46.8389 0H104.302L174.461 545ZM215.423 545H191.639L145.799 0H203.262L215.423 545ZM256.388 545H232.604L244.765 0H302.228L256.388 545ZM297.351 545H273.566L343.728 0H401.191L297.351 545ZM338.313 545H314.529L442.691 0H487.49V42.6362L338.313 545ZM379.275 545H355.491L487.49 158.565V276.729L379.275 545ZM420.238 545H396.453L487.49 341.796V413.08L420.238 545ZM461.2 545H437.416L487.49 454.681V502.334L461.2 545ZM-39.4634 413.08L27.789 545H51.5733L-39.4634 341.796V413.08Z" fill="#383242"/>
+                </svg>
+              </li>
+              <li class="purchase__item">
+                <div class="purchase__info">
+                  <h3 class="purchase__head">Онлайн-покупка</h3>
+                  <p class="purchase__text">
+                    Аккредитация в&nbsp;лучших банках гарантирует для вас самые выгодные условия. Есть семейная ипотека.
+                  </p>
+                </div>  
+                <a class="purchase__sublink">
+                  Оставить заявку
+                  <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.707031 16.707L8.70703 8.70703L0.707031 0.707031" stroke="#AEAAB7" stroke-width="2"/>
+                  </svg>
+                </a>
+                <svg class="purchase__decor" width="440" height="418" viewBox="0 0 440 418" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_471_2088)">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M-412.015 418H-440V406.075L-411.593 392.979L-412.015 418ZM-363.816 418H-391.802L-390.798 383.389L-361.612 369.934L-363.816 418ZM-315.618 418H-343.604L-340.24 360.082L-310.242 346.25L-315.618 418ZM-267.42 418H-295.405L-288.278 336.118L-257.437 321.895L-267.42 418ZM-219.221 418H-247.207L-234.841 311.483L-203.115 296.855L-219.221 418ZM-171.023 418H-199.009L-179.873 286.14L-147.226 271.089L-171.023 418ZM-122.825 418H-150.81L-123.306 260.057L-89.7007 244.56L-122.825 418ZM-74.6262 418H-102.612L-65.0699 233.205L-30.4612 217.249L-74.6262 418ZM-26.4278 418H-54.4137L-5.08783 205.545L30.5751 189.102L-26.4278 418ZM21.7705 418H-6.21535L56.723 177.049L93.4813 160.099L21.7705 418ZM118.167 418H90.1813L186.156 117.37L225.271 99.3364L118.167 418ZM120.441 147.669L41.983 418H69.9688L158.349 130.191L120.441 147.669Z" fill="#383242"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M114.24 387.315L137.198 418H156.805L119.643 370.826L114.235 387.315H114.24ZM133.595 328.276L214.743 418H243.71L139.622 309.888L133.59 328.276H133.595ZM144.105 296.23L267.075 418H303.463L150.489 276.767L144.105 296.23ZM155.233 262.295L333.213 418H380.284L162.003 241.659L155.238 262.295H155.233ZM167.035 226.305L419.448 418H440V388.423L174.222 204.387L167.035 226.301V226.305ZM179.575 188.068L440 355.789V310.605L187.225 164.742L179.58 188.063L179.575 188.068ZM192.922 147.361L440 277.976V232.792L201.075 122.501L192.922 147.366V147.361ZM248.197 88.5703L211.246 105.634L440 200.158V154.974L248.197 88.5703ZM328.593 51.4449L278.937 74.3748L440 122.34V77.1559L328.593 51.4403V51.4449ZM440 0L370.883 31.9169L440 44.5265V0ZM195.915 418L129.36 341.193L123.654 358.593L172.306 418H195.915Z" fill="#383242"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0_471_2088">
+                  <rect width="880" height="418" fill="white" transform="matrix(-1 0 0 -1 440 418)"/>
+                  </clipPath>
+                  </defs>
+                </svg>
+        
+              </li>
+            </ul> 
+          </div>
+        </section>        <section class="location section">
+          <div class="location__container">
+            <div class="location__inner col-12 row">
+              <div class="col-1 col-hidden"></div>
+              <h2 class="col-10 section__title">Расположение</h2>
+              <div class="col-1 col-hidden"></div>
+            </div>
+            <div class="location__map" id="map">
+            </div>
+            <div class="location__inner col-12 row">
+              <div class="col-1 col-hidden"></div>
+              <ul class="location__list col-10">
+                <li class="location__item active" data-category="education">
+                  Образование
+                </li>
+                <li class="location__item" data-category="kindergarten">
+                  Детский сад
+                </li>
+                <li class="location__item" data-category="products">
+                  Продукты
+                </li>
+                <li class="location__item" data-category="cafe">
+                  Кафе
+                </li>
+              </ul>
+              <div class="col-1 col-hidden"></div>
+            </div>
+          </div>
+        </section>        <section class="news section">
+          <div class="news__container">
+            <div class="news__inner col-12 row">
+              <div class="col-1 col-hidden"></div>
+              <div class="col-11 news__info">
+                <h2 class="news__title">Новости</h2>
+                <div class="news__wrapper">
+                  <div class="news-nav">
+                    <div class="news-prev swip-icon swiper-button-disabled">
+                      <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.41406 0.707031L1.41406 8.70703L9.41406 16.707" stroke="#26202E" stroke-width="2"></path>
+                      </svg>
+                    </div>
+                    <div class="news-next swip-icon">
+                      <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.707028 16.707L8.70703 8.70703L0.707031 0.707031" stroke="#26202E" stroke-width="2"></path>
+                      </svg>
+                    </div>
+        
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper news-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <a href="" class="news-swiper__link">
+                    <div class="news__img">
+                      <img src="/bart/assets/img/12.jpg" alt="">
+                    </div>
+                    <h3 class="news__head">Нас аккредитовал банк</h3>
+                    <span class="news__date">19.02.26</span>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="" class="news-swiper__link">
+                    <div class="news__img">
+                      <img src="/bart/assets/img/12.jpg" alt="">
+                    </div>
+                    <h3 class="news__head">Нас аккредитовал банк</h3>
+                    <span class="news__date">19.02.26</span>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="" class="news-swiper__link">
+                    <div class="news__img">
+                      <img src="/bart/assets/img/12.jpg" alt="">
+                    </div>
+                    <h3 class="news__head">Нас аккредитовал банк</h3>
+                    <span class="news__date">19.02.26</span>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a class="news-swiper__link">
+                    <div class="news__img">
+                      <img src="/bart/assets/img/12.jpg" alt="">
+                    </div>
+                    <h3 class="news__head">Нас аккредитовал банк</h3>
+                    <span class="news__date">19.02.26</span>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a class="news-swiper__link">
+                    <div class="news__img">
+                      <img src="/bart/assets/img/12.jpg" alt="">
+                    </div>
+                    <h3 class="news__head">Нас аккредитовал банк</h3>
+                    <span class="news__date">19.02.26</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>        <section class="documents section">
+          <div class="documents__container">
+            <div class="documents__inner col-12 row">
+              <div class="col-1 col-hidden"></div>
+              <div class="col-10  documents__info">
+                <h2>Документы проекта</h2>
+                <ul class="documents__list">
+                  <li class="documents__item">
+                    <a class="documents__link" href="">
+                      <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.54492 0.777344L5.19043 10.3759" stroke="#AEAAB7" stroke-width="1.5" stroke-linecap="square"/>
+                        <path d="M9.82974 6.28762L5.18457 10.7774L0.539396 6.28762" stroke="#AEAAB7" stroke-width="1.5"/>
+                      </svg>
+                      Проектная декларация, PDF
+                    </a>
+                  </li>
+                  <li class="documents__item">
+                    <a class="documents__link" href="">
+                      <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.54492 0.777344L5.19043 10.3759" stroke="#AEAAB7" stroke-width="1.5" stroke-linecap="square"/>
+                        <path d="M9.82974 6.28762L5.18457 10.7774L0.539396 6.28762" stroke="#AEAAB7" stroke-width="1.5"/>
+                      </svg>
+                      Проектная декларация, PDF
+                    </a>
+                  </li>
+                  <li class="documents__item">
+                    <a class="documents__link" href="">
+                      <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.54492 0.777344L5.19043 10.3759" stroke="#AEAAB7" stroke-width="1.5" stroke-linecap="square"/>
+                        <path d="M9.82974 6.28762L5.18457 10.7774L0.539396 6.28762" stroke="#AEAAB7" stroke-width="1.5"/>
+                      </svg>
+                      Проектная декларация, PDF
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-1 col-hidden"></div>
+            </div>
+          </div>
+        </section>        
+      </main>
+      <footer class='footer section' id='footer' data-section='footer'>
+        <div class='footer__container'>
+          <div class='footer__inner col-12 row'>
+            <div class='footer__info col-5'>
+              <span class='footer__info--head'>Офис продаж</span>
+              <a class='footer__info--phone' href=''>8 (3852) 566-766</a>
+              <a class='footer__info--mail' href=''>info@bartdev.ru</a>
+              <div class='footer__info--text'>
+                <p>Барнаул, ул. Партизанская, 70, оф. 601</p>
+                <p>пн&mdash;пт 9:00&ndash;18:00</p>
+              </div>
+              <a class='hero__link footer__info--link' href=''>
+                126 квартир
+                <svg
+                  width='11'
+                  height='18'
+                  viewBox='0 0 11 18'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    d='M0.707031 16.7071L8.70703 8.70709L0.707031 0.707092'
+                    stroke='#EAE8EC'
+                    stroke-width='2'
+                  ></path>
+                </svg>
+              </a>
+            </div>
+            <div class='col-2'></div>
+            <div class='col-4 footer__navigataions'>
+              <ul class='footer__nav--list'>
+                <li class='footer__nav--item'>
+                  <a class='footer__nav--link' href=''>Объекты</a>
+                </li>
+                <li class='footer__nav--item'>
+                  <a class='footer__nav--link' href=''>Квартиры</a>
+                </li>
+                <li class='footer__nav--item'>
+                  <a class='footer__nav--link' href=''>Новости</a>
+                </li>
+                <li class='footer__nav--item'>
+                  <a class='footer__nav--link' href=''>О&nbsp;компании</a>
+                </li>
+                <li class='footer__nav--item'>
+                  <a class='footer__nav--link' href=''>Контакты</a>
+                </li>
+              </ul>
+              <ul class='footer__socials--list'>
+                <li class='footer__socials--item'>
+                  <a class='footer__socials--link' href=''>Телеграм</a>
+                </li>
+                <li class='footer__socials--item'>
+                  <a class='footer__socials--link' href=''>MAX</a>
+                </li>
+                <li class='footer__socials--item'>
+                  <a class='footer__socials--link' href=''>VK</a>
+                </li>
+              </ul>
+            </div>
+            <div class='col-1'></div>
+          </div>
+          <div class='footer__bot col-12 row'>
+            <div class='col-5 footer__bot--info'>
+              <div class='footer__bot--consent'>
+                <a href=''>Политика конфиденциальности</a>
+                <a href=''>Политика обработки персональных данных</a>
+                <p>Застройщик ООО &laquo;СЗ&nbsp;БАРТ&raquo;. Проектная декларация на&nbsp;наш.дом.рф</p>
+              </div>
+              <span class='footer__bot--bart'>© Барт, 2026</span>
+            </div>
+            <p class='footer__bot--country'>Сделано в <a target="_blank" class="country__link" href='https://countryagency.ru/'>Кантри</a></p>
+          </div>
+        </div>
+      </footer>
+      
+      <div class='js-modal-call modal-call'>
+        <div class='modal__body'>
+          <div class='modal__content'>
+            <a href='' class='modal__close'>
+              <svg
+                width='16'
+                height='16'
+                viewBox='0 0 16 16'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <g clip-path='url(#clip0_566_3648)'>
+                  <path d='M-0.485352 -0.485291L35.5771 35.5772' stroke='#4C4657' stroke-width='1.5' />
+                  <path d='M16.4854 -0.485291L-19.5771 35.5772' stroke='#4C4657' stroke-width='1.5' />
+                </g>
+                <defs>
+                  <clipPath id='clip0_566_3648'>
+                    <rect width='16.0001' height='16' fill='white' />
+                  </clipPath>
+                </defs>
+              </svg>
+            </a>
+            <div class='modal__wrapper'>
+              <h2 class='modal__title'>Заказать звонок</h2>
+              <div class='modal__inputs'>
+                <div class='modal__input'>
+                  <label class='modal__label' for=''>Имя</label>
+                  <input
+                    name='user_name'
+                    class='modal__name'
+                    type='text'
+                    data-type='text'
+                    placeholder='Имя'
+                  />
+      
+                </div>
+                <div class='modal__input wrapper__phone'>
+                  <label class='modal__label' for=''>Телефон</label>
+                  <input
+                    data-mask='phone'
+                    name='user_phone'
+                    class='modal__tel'
+                    data-type='phone'
+                    type='text'
+                    id='modal-phone'
+                    inputmode='text'
+                    placeholder='+7 999 111 22 33'
+                  />
+      
+                </div>
+              </div>
+              <div class='form-check'>
+                <input
+                  class='form-check-input'
+                  id='flexCheckChecked'
+                  type='checkbox'
+                  required='required'
+                />
+                <label class='form-check-label' for='flexCheckChecked'>
+                  <span class='custom-checkbox-icon'></span>
+                  <p>Я&nbsp;даю согласие на
+                    <a class='' href='/policy.pdf' target='_blank' rel='noopener noreferrer'>обработку
+                      моих персональных данных</a>
+                    и&nbsp;ознакомлен (-а)
+                    <a href='/policy.pdf' target='_blank'>c&nbsp;политикой конфиденциальности</a></p>
+                </label>
+              </div>
+              <button class='btn btn-reset btn-accent modal__link' disabled href=''>Забронировать</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class='js-modal-bron modal-bron'>
+        <div class='modal__body'>
+          <div class='modal__content'>
+            <a href='' class='modal__close'>
+              <svg
+                width='16'
+                height='16'
+                viewBox='0 0 16 16'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <g clip-path='url(#clip0_566_3648)'>
+                  <path d='M-0.485352 -0.485291L35.5771 35.5772' stroke='#4C4657' stroke-width='1.5' />
+                  <path d='M16.4854 -0.485291L-19.5771 35.5772' stroke='#4C4657' stroke-width='1.5' />
+                </g>
+                <defs>
+                  <clipPath id='clip0_566_3648'>
+                    <rect width='16.0001' height='16' fill='white' />
+                  </clipPath>
+                </defs>
+              </svg>
+            </a>
+            <div class='modal__wrapper'>
+              <h2 class='modal__title'>Забронировать</h2>
+              <div class='modal__inputs'>
+                <div class='modal__input'>
+                  <label class='modal__label' for=''>Имя</label>
+                  <input
+                    name='user_name'
+                    class='modal__name'
+                    type='text'
+                    data-type='text'
+                    placeholder='Имя'
+                  />
+      
+                </div>
+                <div class='modal__input'>
+                  <label class='modal__label' for=''>Объект</label>
+                  <input
+                    name='user_object'
+                    class='modal__object'
+                    type='text'
+                    data-type='text'
+                    placeholder=''
+                    readonly
+                  />
+      
+                </div>
+                <div class='modal__input wrapper__phone'>
+                  <label class='modal__label' for=''>Телефон</label>
+                  <input
+                    data-mask='phone'
+                    name='user_phone'
+                    class='modal__tel'
+                    data-type='phone'
+                    type='text'
+                    id='modal-phone'
+                    inputmode='text'
+                    placeholder='+7 999 111 22 33'
+                  />
+      
+                </div>
+                <div class='modal__input'>
+                  <label class='modal__label' for=''>Помещение</label>
+                  <input
+                    name='user_pomesch'
+                    class='modal__pomesch'
+                    type='text'
+                    data-type='text'
+                    placeholder=''
+                    readonly
+                  />
+      
+                </div>
+              </div>
+              <div class='form-check'>
+                <input
+                  class='form-check-input'
+                  id='flexCheckChecked2'
+                  type='checkbox'
+                  required='required'
+                />
+                <label class='form-check-label' for='flexCheckChecked2'>
+                  <span class='custom-checkbox-icon'></span>
+                  <p>Я&nbsp;даю согласие на
+                    <a class='' href='/policy.pdf' target='_blank' rel='noopener noreferrer'>обработку
+                      моих персональных данных</a>
+                    и&nbsp;ознакомлен (-а)
+                    <a href='/policy.pdf' target='_blank'>c&nbsp;политикой конфиденциальности</a></p>
+                </label>
+              </div>
+              <button class='btn btn-reset btn-accent modal__link' disabled href=''>Забронировать</button>
+            </div>
+          </div>
+        </div>
+      </div>    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://api-maps.yandex.ru/v3/?apikey=d176ec1a-b884-4f13-8214-24154cf58189&lang=ru_RU"></script>
+  </body>
+</html>
