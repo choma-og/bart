@@ -41,6 +41,452 @@ import { S as Swiper, N as Navigation, P as Pagination, E as EffectFade, A as Au
   }
 })();
 const style = "";
+const appartDetailPdfTemplate = `<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base href="%%BASE_HREF%%" />
+    <title>%%TITLE%%</title>
+    <style>
+      @font-face {
+        font-family: "Helios";
+        font-style: normal;
+        font-weight: 400;
+        src: url("assets/ttf/heliosext.ttf") format("truetype");
+        font-display: swap;
+      }
+      @page {
+        size: A4 landscape;
+        margin: 12mm;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family: 'Helios', sans-serif;
+        font-weight: 400;
+        line-height: 1.4;
+        font-size: 18px;
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .col-1 {
+        width: 8.33%;
+      }
+      .pl-1 {
+        padding-left: 8.33%;
+      }
+      .col-2 {
+        width: 16.67%;
+      }
+      .col-3 {
+        width: 24.99%;
+      }
+      .col-4 {
+        width: 33.33%;
+      }
+      .col-5 {
+        width: 46.47%;
+      }
+      .col-6 {
+        width: 50%;
+      }
+      .col-7 {
+        width: 58.33%;
+      }
+      .col-8 {
+        width: 66.66%;
+      }
+      .col-9 {
+        width: 75%;
+      }
+      .col-10 {
+        width: 83.33%;
+      }
+      .col-11 {
+        width: 91.67%;
+      }
+      .col-12 {
+        width: 100%;
+      }
+      .row {
+        display: flex;
+        justify-content: space-between;
+      }
+      .pdf-block {
+        padding: 30px;
+      }
+      /* .pdf {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 16mm;
+        align-items: stretch;
+      }
+      .pdf__left {
+        padding: 8mm 0;
+      }
+      .pdf__brand {
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        font-size: 24px;
+        margin-bottom: 16mm;
+      }
+      .pdf__title {
+        font-weight: 700;
+        font-size: 36px;
+        margin: 0 0 8mm;
+      }
+      .pdf__sqr {
+        font-size: 28px;
+        margin: 0 0 10mm;
+      }
+
+      .pdf__label {
+        font-size: 13px;
+        color: #aeaab7;
+        margin-bottom: 2mm;
+      }
+      .pdf__value {
+        font-size: 18px;
+      }
+      .pdf__priceRow {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10mm;
+        align-items: end;
+        margin-top: 6mm;
+      }
+      .pdf__price {
+        font-size: 34px;
+        font-weight: 700;
+      }
+      .pdf__per {
+        text-align: left;
+      }
+      .pdf__muted {
+        font-size: 13px;
+        color: #928d9d;
+        line-height: 1.35;
+      }
+      .pdf__contacts {
+        margin-top: 18mm;
+        display: grid;
+        gap: 2mm;
+      }
+      .pdf__contacts .pdf__head {
+        font-size: 13px;
+        color: #aeaab7;
+        margin-bottom: 3mm;
+      }
+      .pdf__contacts a {
+        color: #26202e;
+        text-decoration: none;
+      }
+      .pdf__contacts a:hover {
+        text-decoration: underline;
+      }
+      .pdf__right {
+        position: relative;
+        padding: 6mm 0;
+      }
+      .pdf__planBig {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .pdf__planBig svg {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .pdf__planSmallWrap {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 38%;
+      }
+      .pdf__planSmallTitle {
+        text-align: center;
+        font-size: 14px;
+        color: #928d9d;
+        margin: 0 0 4mm;
+      }
+      .pdf__planSmall svg {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .pdf__topNote {
+        text-align: center;
+        font-size: 14px;
+        color: #928d9d;
+        margin-bottom: 8mm;
+      } */
+      .pdf-info__logo {
+        margin-bottom: 40px;
+       }
+       .pdf {
+        height: 100vh;
+       }
+      .pdf__descr {
+        max-width: 240px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-bottom: 10mm;
+      }
+      .pdf__title {
+        font-size: clamp(26px, 1.111rem + 1.27vw, 36px);
+        line-height: 1.2;
+        color: #26202E;
+        margin-bottom: 30px;
+        font-family: "Helios", sans-serif;
+        font-weight: 400;
+      }
+      .pdf-info {
+        background-color: #EAE8EC;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 40px;
+      }
+      .pdf__sqr {
+        color: #26202E;
+        font-size: 24px;
+        display: block;
+        margin-bottom: 30px;
+        font-family: "Helios", sans-serif;
+      }
+      .appart-detail__value {
+          font-size: 20px;
+          color: #26202E;
+          font-family: "Helios", sans-serif;
+      }
+
+      .appart-detail__head {
+          font-size: 14px;
+          color: #AEAAB7;
+          font-family: "Helios", sans-serif;
+      }
+      .pdf__street {
+        color: #928D9D;
+        font-size: 12px;
+        font-family: "Helios", sans-serif;
+      }
+      .pdf__price {
+        color: #26202E;
+        font-size: 24px;
+        font-family: "Helios", sans-serif;
+      }
+      .pdf__street-1 {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .pdf__street-3 {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .pdf__planSmall {
+
+      }
+      .pdf__street-2 {
+        position: absolute;
+        bottom: 40%;
+        right: 0%;
+        transform: translate(0%, 0%);
+        writing-mode: vertical-rl;
+      }
+      .pdf__priceRow {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: flex-end;
+        max-width: 300px;
+      }
+      .pdf__head {
+        color: #928D9D;
+        font-size: 10px;
+        margin-bottom: 16px;
+        font-family: "Helios", sans-serif;
+      }
+      .pdf__phone {
+        font-family: "Helios", sans-serif;
+        display: block;
+        color: #26202E;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+      .pdf__mail {
+        font-family: "Helios", sans-serif;
+        color: #928D9D;
+        font-size: 12px;
+        display: block;
+        margin-bottom: 10px;
+      }
+      .pdf__adress {
+        font-family: "Helios", sans-serif;
+        font-size: 12px;
+        color: #928D9D;
+        margin: 0;
+      }
+      .pdf__planBig {
+        width: 320px;
+      }
+      .pdf-images {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+      }
+      .pdf-compas {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+      }
+      .pdf__planSmallWrap {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+      .pdf__planSmallTitle {
+        color: #928D9D;
+        font-size: 12px;
+        font-family: "Helios", sans-serif;
+      }
+      .pdf-detail__img {
+          position: relative;
+          top:25%;
+          left: 30%;
+          transform: translate(-50%, -50%);
+          width: -moz-fit-content;
+          width: fit-content;
+          height: -moz-fit-content;
+          height: fit-content;
+          margin-bottom: 40px;
+      }
+      .pdf__location {
+        position: absolute;
+        top: 50%;
+        left: 80%;
+        transform: translate(-50%, -50%);
+        height: 460px;
+        width: 500px;
+        pointer-events: none;
+      }
+      @media print {
+        a {
+          color: #26202e;
+          text-decoration: none;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <section class="pdf col-12 row">
+      <div class="col-6 pdf-info pdf-block">
+        <div class="pdf-info__top">
+          <svg class="pdf-info__logo" width="100" height="16" viewBox="0 0 100 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_1060_6420)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M24.3583 15.265H37.9558L40.0967 11.5409H32.5308L36.9658 4.34974L43.0933 15.2658H51.0283L41.9567 -0.00113297H34.0217L24.3575 15.265H24.3583ZM53.095 -0.00113297L50.9533 3.72292H54.4008V15.265H61.2483V11.2882H69.3283C77.9808 11.2882 77.9625 -0.00113297 69.3283 -0.00113297L53.095 -0.00113297ZM61.2483 7.56414V3.72292H66.3292C69.7133 3.72292 69.6692 7.56414 66.3292 7.56414H61.2483ZM0 15.265H17.3183C24.7192 15.265 24.7142 5.81342 17.4575 5.81342H6.8475V3.72292H20.715L22.8558 -0.00113297H0V15.265ZM6.8475 11.5409V9.09143H14.5642C16.4658 9.09143 16.3808 11.5409 14.5642 11.5409H6.8475ZM100 -0.00113297H78.835L76.6942 3.72292H84.9242V15.265H91.7717V3.72292H97.86L100.001 -0.00113297H100Z" fill="#26202E"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_1060_6420">
+            <rect width="100" height="15.2017" fill="white"/>
+            </clipPath>
+            </defs>
+          </svg>
+          <h2 class="pdf__title">%%TITLE%%</h2>
+          <div class="pdf__sqr">%%SQR%%</div>
+          <div class="pdf__descr">
+            <div>
+              <div class="appart-detail__head">Этаж</div>
+              <div class="appart-detail__value">%%FLOOR%%</div>
+            </div>
+            <div>
+              <div class="appart-detail__head">Блок-секция</div>
+              <div class="appart-detail__value">%%SECTION%%</div>
+            </div>
+          </div>
+          <div class="pdf__priceRow">
+            <div class="pdf__price">%%PRICE%%</div>
+            <div class="pdf__per">
+              <div class="appart-detail__head">За м²</div>
+              <div class="appart-detail__value">%%PRICE_PER_M2%%</div>
+            </div>
+          </div>
+        </div>
+        <div class="pdf-info__bottom">
+        <div class="pdf__contacts">
+          <div class="pdf__head">Офис продаж</div>
+            <span class="pdf__phone">%%PHONE_HTML%%</span>
+            <span class="pdf__mail">%%EMAIL_HTML%%</span>
+            <p class="pdf__adress">%%ADDR_HTML%%</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 pdf-images pdf-block">
+        <svg class="pdf-compas" width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_1060_6423)">
+          <mask id="path-1-inside-1_1060_6423" fill="white">
+          <path d="M17.1607 0.793211L15.1086 8.59L22.836 6.51945L17.1607 0.793211Z"/>
+          </mask>
+          <path d="M15.1086 8.59L10.2733 7.31735L8.08025 15.6496L16.4027 13.4196L15.1086 8.59ZM17.1607 0.793211L20.712 -2.72649L14.5525 -8.94126L12.3254 -0.479438L17.1607 0.793211ZM22.836 6.51945L24.1301 11.3491L32.4523 9.11916L26.3873 2.99975L22.836 6.51945ZM15.1086 8.59L19.9439 9.86265L21.996 2.06586L17.1607 0.793211L12.3254 -0.479438L10.2733 7.31735L15.1086 8.59ZM17.1607 0.793211L13.6094 4.31292L19.2847 10.0392L22.836 6.51945L26.3873 2.99975L20.712 -2.72649L17.1607 0.793211ZM22.836 6.51945L21.5419 1.68982L13.8145 3.76037L15.1086 8.59L16.4027 13.4196L24.1301 11.3491L22.836 6.51945Z" fill="#625B6D" mask="url(#path-1-inside-1_1060_6423)"/>
+          <circle cx="23.9556" cy="24.1444" r="17.5" transform="rotate(-15 23.9556 24.1444)" stroke="#625B6D"/>
+          <path d="M28.6062 24.7272C28.3782 26.8992 26.6622 28.3272 24.1902 28.3272C21.2262 28.3272 19.4262 26.5152 19.4262 23.7432C19.4262 20.9712 21.2262 19.1592 24.2022 19.1592C26.6382 19.1592 28.3302 20.5392 28.5102 22.5552H27.2262C26.9862 21.1632 25.8582 20.3232 24.1902 20.3232C21.9822 20.3232 20.7102 21.6072 20.7102 23.7432C20.7102 25.8792 21.9942 27.1632 24.2022 27.1632C25.9182 27.1632 27.1182 26.1912 27.3222 24.7272H28.6062Z" fill="#26202E"/>
+          </g>
+          <defs>
+          <clipPath id="clip0_1060_6423">
+          <rect width="46" height="46" fill="white"/>
+          </clipPath>
+          </defs>
+        </svg>
+
+        <div class="pdf-detail__img">
+          <div class="pdf__planBig">
+            %%APART_SVG%%
+          </div>
+          <div class="pdf__location">
+            <span class="pdf__street-1 pdf__street">Павловский тракт</span>
+            <span class="pdf__street-2 pdf__street">Ул. Малахова</span>
+            <span class="pdf__street-3 pdf__street">Ул. Взлетная</span>
+          </div>
+        </div>
+
+          <div class="pdf__planSmallWrap">
+            <div class="pdf__planSmallTitle">Квартира на этаже</div>
+            <div class="pdf__planSmall">
+              %%FLOOR_SVG%%
+            </div>
+          </div>
+      </div>
+    </section>
+    <script>
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          window.focus();
+          window.print();
+        }, 50);
+      });
+      window.addEventListener('afterprint', () => {
+        setTimeout(() => window.close(), 50);
+      });
+    <\/script>
+  </body>
+</html>
+
+`;
 (function initHeaderInfoMove() {
   const headerInfo = document.querySelector(".header__info");
   const menuBody = document.querySelector(".menu__body");
@@ -266,7 +712,7 @@ function initLocationMap() {
     setTimeout(initLocationMap, 100);
     return;
   }
-  const CENTER = [83.7545, 53.3606];
+  const CENTER = [83.692711, 53.339188];
   window.ymaps3.ready.then(() => {
     const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker } = window.ymaps3;
     const map = new YMap(
@@ -288,7 +734,7 @@ function initLocationMap() {
     img.width = 40;
     img.height = 40;
     markerEl.appendChild(img);
-    const mainMarker = new YMapMarker({ coordinates: CENTER }, markerEl);
+    const mainMarker = new YMapMarker({ coordinates: CENTER, zIndex: 2e3 }, markerEl);
     map.addChild(mainMarker);
     let categoryMarkers = [];
     function clearCategoryMarkers() {
@@ -327,7 +773,7 @@ function initLocationMap() {
           wrap.classList.toggle("is-tooltip-visible");
         }
         wrap.addEventListener("click", onPointClick);
-        const yMarker = new YMapMarker({ coordinates: coords }, wrap);
+        const yMarker = new YMapMarker({ coordinates: coords, zIndex: 1e3 }, wrap);
         map.addChild(yMarker);
         categoryMarkers.push(yMarker);
       });
@@ -362,6 +808,7 @@ initLocationMap();
 (function initChooseAppartResponsiveDomMove() {
   const MAX_WIDTH = 801;
   const mq = window.matchMedia(`(min-width: ${MAX_WIDTH + 1}px)`);
+  const mqWrappToApartmentContainer = window.matchMedia("(max-width: 799px)");
   let navEl = null;
   let compasEl = null;
   let wrappEl = null;
@@ -407,11 +854,32 @@ initLocationMap();
     placeholderEl = null;
     moved = false;
   }
+  function repositionWrappInApartmentContainer() {
+    if (mq.matches)
+      return;
+    const wrapp = wrappEl && wrappEl.isConnected && wrappEl.classList.contains("choose-appart__wrapp") ? wrappEl : document.querySelector(".choose-appart__wrapp");
+    if (!wrapp)
+      return;
+    const container = document.querySelector(".apartment__container");
+    const inner = container && container.querySelector(":scope > .apartment__inner");
+    const chooseinfo = document.querySelector(".apartment__chooseinfo");
+    const info = infoEl && infoEl.isConnected ? infoEl : document.querySelector(".choose-appart__info");
+    if (!container || !inner || !chooseinfo || !info)
+      return;
+    if (mqWrappToApartmentContainer.matches) {
+      if (wrapp.parentNode !== container || wrapp.previousElementSibling !== inner) {
+        inner.after(wrapp);
+      }
+    } else if (wrapp.parentNode === container) {
+      chooseinfo.insertBefore(wrapp, info);
+    }
+  }
   function apply() {
     if (mq.matches)
       moveToInfo();
     else
       moveBack();
+    repositionWrappInApartmentContainer();
   }
   let tries = 0;
   const maxTries = 20;
@@ -429,10 +897,27 @@ initLocationMap();
     mq.addEventListener("change", apply);
   else
     mq.addListener(apply);
+  if (mqWrappToApartmentContainer.addEventListener) {
+    mqWrappToApartmentContainer.addEventListener("change", apply);
+  } else
+    mqWrappToApartmentContainer.addListener(apply);
 })();
 (function initChooseAppartNav() {
-  const nav = document.querySelector(".choose-appart__nav");
-  const imgBlock = document.querySelector(".choose-appart__img");
+  const apartmentSection = document.querySelector("section.apartment");
+  const hasApartmentChooser = apartmentSection && apartmentSection.querySelector(".apartment__chooseinfo");
+  const choosePageSection = document.querySelector("section.choose-appart");
+  let nav;
+  let imgBlock;
+  if (hasApartmentChooser) {
+    nav = apartmentSection.querySelector(".choose-appart__nav");
+    imgBlock = apartmentSection.querySelector(".apartment__chooseinfo .choose-appart__img");
+  } else if (choosePageSection) {
+    nav = choosePageSection.querySelector(".choose-appart__nav");
+    imgBlock = choosePageSection.querySelector(".choose-appart__img");
+  } else {
+    nav = document.querySelector(".choose-appart__nav");
+    imgBlock = document.querySelector(".choose-appart__img");
+  }
   if (!nav)
     return;
   const list = nav.querySelector(".choose-appart__list");
@@ -446,7 +931,13 @@ initLocationMap();
     items.forEach((el) => el.classList.remove("active"));
     if (li)
       li.classList.add("active");
-    switchFloorPlan(li ? parseInt(li.textContent.trim(), 10) : null);
+    const floorNum = li ? parseInt(li.textContent.trim(), 10) : null;
+    switchFloorPlan(Number.isNaN(floorNum) ? null : floorNum);
+    if (li && !Number.isNaN(floorNum) && document.querySelector(".apartment__chooseinfo")) {
+      document.dispatchEvent(
+        new CustomEvent("apartment:choose-floor", { detail: { floor: floorNum } })
+      );
+    }
   }
   function switchFloorPlan(floorNum) {
     floorPlans.forEach((plan) => {
@@ -454,9 +945,25 @@ initLocationMap();
       plan.classList.toggle("is-active", planFloor === floorNum);
     });
   }
-  function getActiveIndex() {
-    const active = list.querySelector("li.active");
-    return active ? items.indexOf(active) : 0;
+  function getListScrollStepPx() {
+    if (!items.length)
+      return 45;
+    const cs = getComputedStyle(list);
+    const gap = parseFloat(cs.gap) || 0;
+    const r = items[0].getBoundingClientRect();
+    const row = cs.flexDirection === "row" || cs.flexDirection === "row-reverse";
+    return Math.round((row ? r.width : r.height) + gap);
+  }
+  function scrollListOneItem(direction) {
+    const cs = getComputedStyle(list);
+    const fd = cs.flexDirection;
+    const step = getListScrollStepPx();
+    const row = fd === "row" || fd === "row-reverse";
+    if (row) {
+      list.scrollBy({ left: direction * step, behavior: "smooth" });
+      return;
+    }
+    list.scrollBy({ top: direction * step, behavior: "smooth" });
   }
   const initialActive = list.querySelector("li.active");
   if (initialActive)
@@ -466,22 +973,8 @@ initLocationMap();
     if (li)
       setActive(li);
   });
-  arrowUp.addEventListener("click", () => {
-    const idx = getActiveIndex();
-    if (idx <= 0)
-      return;
-    const prev = items[idx - 1];
-    setActive(prev);
-    prev.scrollIntoView({ block: "nearest", behavior: "smooth" });
-  });
-  arrowDown.addEventListener("click", () => {
-    const idx = getActiveIndex();
-    if (idx >= items.length - 1)
-      return;
-    const next = items[idx + 1];
-    setActive(next);
-    next.scrollIntoView({ block: "nearest", behavior: "smooth" });
-  });
+  arrowUp.addEventListener("click", () => scrollListOneItem(-1));
+  arrowDown.addEventListener("click", () => scrollListOneItem(1));
 })();
 (function initFlatModal() {
   const modal = document.getElementById("flat-modal");
@@ -635,6 +1128,90 @@ initLocationMap();
     link.addEventListener("mouseleave", hide);
   });
 })();
+(function initApartmentGenplanChooseInfo() {
+  const apartmentInfo = document.querySelector(".apartment__info");
+  if (!apartmentInfo)
+    return;
+  const genplanWrap = apartmentInfo.querySelector(".apartment__genplan");
+  const chooseInfoWrap = apartmentInfo.querySelector(".apartment__chooseinfo");
+  if (!genplanWrap || !chooseInfoWrap)
+    return;
+  const genplanLinks = apartmentInfo.querySelectorAll(".genplan__link");
+  const chooseInfo = chooseInfoWrap.querySelector(".choose-appart__info");
+  const backBtn = chooseInfo ? chooseInfo.querySelector(".choose-appart__back") : null;
+  const floorEl = chooseInfo ? chooseInfo.querySelector(".choose-appart__floor") : null;
+  const floorPlans = chooseInfo ? chooseInfo.querySelectorAll(".choose-appart__floor-plan") : [];
+  const tooltip = document.getElementById("genplan-tooltip");
+  function setActiveFloor(floorNum) {
+    const floorStr = String(floorNum);
+    if (floorEl)
+      floorEl.textContent = `${floorStr}`;
+    floorPlans.forEach((plan) => {
+      const planFloor = plan.getAttribute("data-floor");
+      plan.classList.toggle("is-active", planFloor === floorStr);
+    });
+    const apartmentRoot = apartmentInfo.closest(".apartment");
+    const listScope = apartmentRoot || apartmentInfo;
+    const listItems = listScope.querySelectorAll(".choose-appart__list li.choose-appart__item");
+    if (listItems && listItems.length) {
+      const targetN = parseInt(floorStr, 10);
+      listItems.forEach((li) => {
+        const n = parseInt(String(li.textContent || "").trim(), 10);
+        li.classList.toggle("active", n === targetN);
+      });
+    }
+  }
+  function showChooseInfo(floorNum) {
+    apartmentInfo.classList.add("apartment__info--choose-active");
+    genplanWrap.style.display = "none";
+    chooseInfoWrap.style.display = "block";
+    if (tooltip) {
+      tooltip.classList.remove("is-visible");
+      tooltip.setAttribute("aria-hidden", "true");
+    }
+    setActiveFloor(floorNum);
+  }
+  function clearChooseAppartFloorListActive() {
+    const apartmentRoot = apartmentInfo.closest(".apartment");
+    const listScope = apartmentRoot || apartmentInfo;
+    listScope.querySelectorAll(".choose-appart__list li.choose-appart__item").forEach((li) => {
+      li.classList.remove("active");
+    });
+  }
+  function showGenplan() {
+    apartmentInfo.classList.remove("apartment__info--choose-active");
+    chooseInfoWrap.style.display = "none";
+    genplanWrap.style.display = "block";
+    clearChooseAppartFloorListActive();
+    if (tooltip) {
+      tooltip.classList.remove("is-visible");
+      tooltip.setAttribute("aria-hidden", "true");
+    }
+  }
+  if (backBtn) {
+    backBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      showGenplan();
+    });
+  }
+  document.addEventListener("apartment:choose-floor", (e) => {
+    const raw = e.detail && e.detail.floor;
+    if (raw === void 0 || raw === null || raw === "")
+      return;
+    showChooseInfo(raw);
+  });
+  if (genplanLinks.length) {
+    genplanLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const floorNum = link.getAttribute("data-floor");
+        if (!floorNum)
+          return;
+        showChooseInfo(floorNum);
+      });
+    });
+  }
+})();
 (function initAppartDetailTabs() {
   const container = document.querySelector(".appart-detail");
   if (!container)
@@ -655,6 +1232,113 @@ initLocationMap();
         item.classList.toggle("is-active", item.getAttribute("data-appart-view") === tab);
       });
     });
+  });
+})();
+(function initAppartDetailPdf() {
+  const root = document.querySelector(".appart-detail");
+  if (!root)
+    return;
+  const btn = root.querySelector("a.appart-detail__pdf");
+  if (!btn)
+    return;
+  function escapeHtml(v) {
+    return String(v ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+  }
+  function textOf(selector) {
+    const el = root.querySelector(selector);
+    return ((el == null ? void 0 : el.textContent) || "").trim();
+  }
+  function parseNumberLikeRu(str) {
+    const s = String(str || "").replace(/\s+/g, " ").trim();
+    const normalized = s.replace(/[^\d,.-]/g, "").replace(/\s/g, "").replace(",", ".");
+    const n = Number(normalized);
+    return Number.isFinite(n) ? n : null;
+  }
+  function formatRub(n) {
+    try {
+      return new Intl.NumberFormat("ru-RU").format(n) + " ₽";
+    } catch {
+      return String(n) + " ₽";
+    }
+  }
+  function formatRubPerM2(n) {
+    try {
+      return new Intl.NumberFormat("ru-RU", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }).format(n) + " ₽";
+    } catch {
+      return String(n) + " ₽";
+    }
+  }
+  function getSvgOuterHtml(view) {
+    const svg = root.querySelector(`.appart-detail__img-item[data-appart-view="${view}"] svg`);
+    return svg ? svg.outerHTML : "";
+  }
+  function buildPrintHtml() {
+    var _a, _b, _c, _d, _e;
+    const title = textOf(".appart-detail__title");
+    const sqrRaw = textOf(".appart-detail__sqr");
+    const priceRaw = textOf(".appart-detail__price");
+    const infoBlocks = Array.from(root.querySelectorAll(".appart-detail__information > div")).map(
+      (d) => {
+        var _a2, _b2;
+        const head = (((_a2 = d.querySelector(".appart-detail__head")) == null ? void 0 : _a2.textContent) || "").trim();
+        const value = (((_b2 = d.querySelector(".appart-detail__value")) == null ? void 0 : _b2.textContent) || "").trim();
+        return { head, value };
+      }
+    );
+    const floor = ((_a = infoBlocks.find((x) => /этаж/i.test(x.head || ""))) == null ? void 0 : _a.value) || "";
+    const section = ((_b = infoBlocks.find((x) => /блок/i.test(x.head || ""))) == null ? void 0 : _b.value) || "";
+    const sqr = parseNumberLikeRu(sqrRaw);
+    const price = parseNumberLikeRu(priceRaw);
+    const pricePerM2 = price && sqr ? price / sqr : null;
+    const phone = (((_c = document.querySelector(".footer__info--phone")) == null ? void 0 : _c.textContent) || "").trim() || (((_d = document.querySelector(".header__phone")) == null ? void 0 : _d.textContent) || "").trim();
+    const email = (((_e = document.querySelector(".footer__info--mail")) == null ? void 0 : _e.textContent) || "").trim();
+    const addrLines = Array.from(document.querySelectorAll(".footer__info--text p")).map((p) => (p.textContent || "").trim()).filter(Boolean);
+    const apartSvg = getSvgOuterHtml("apart");
+    const floorSvg = getSvgOuterHtml("floor");
+    const priceStr = price ? formatRub(price) : priceRaw;
+    const pricePerM2Str = pricePerM2 ? formatRubPerM2(pricePerM2) : "";
+    const addrHtml = addrLines.map((l) => `<div class="pdf__muted">${escapeHtml(l)}</div>`).join("");
+    const phoneHtml = phone ? `<a href="#">${escapeHtml(phone)}</a>` : "";
+    const emailHtml = email ? `<a href="#">${escapeHtml(email)}</a>` : "";
+    const baseHref = `${window.location.origin}${"/bart/"}`;
+    const replacements = {
+      "%%BASE_HREF%%": baseHref,
+      "%%TITLE%%": escapeHtml(title),
+      "%%SQR%%": escapeHtml(sqrRaw),
+      "%%FLOOR%%": escapeHtml(floor),
+      "%%SECTION%%": escapeHtml(section),
+      "%%PRICE%%": escapeHtml(priceStr),
+      "%%PRICE_PER_M2%%": escapeHtml(pricePerM2Str || ""),
+      "%%PHONE_HTML%%": phoneHtml,
+      "%%EMAIL_HTML%%": emailHtml,
+      "%%ADDR_HTML%%": addrHtml,
+      // SVG вставляем как “сырой” HTML (без escape)
+      "%%APART_SVG%%": apartSvg || "",
+      "%%FLOOR_SVG%%": floorSvg || ""
+    };
+    let html = appartDetailPdfTemplate;
+    Object.entries(replacements).forEach(([key, value]) => {
+      html = html.split(key).join(value);
+    });
+    return html;
+  }
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const html = buildPrintHtml();
+    const w = window.open("", "_blank");
+    if (!w)
+      return;
+    try {
+      w.document.open();
+      w.document.write(html);
+      w.document.close();
+    } catch (err) {
+      const encoded = encodeURIComponent(html);
+      window.open(`data:text/html;charset=utf-8,${encoded}`, "_blank");
+    }
   });
 })();
 (function initCallModal() {
