@@ -11,6 +11,7 @@ import 'owl.carousel/dist/owl.carousel.min.js';
 import axios from 'axios';
 import IMask from 'imask';
 import { gsap, ScrollTrigger } from 'gsap/all';
+import appartDetailPdfTemplate from '@/templates/appart-detail-pdf.html?raw';
 
 // При ширине экрана < 1250px переносим header__info (телефон и «Заказать звонок») в menu__body; header__love остаётся в хедере
 (function initHeaderInfoMove() {
@@ -130,7 +131,9 @@ let dynamicsSwiper = null;
 
     // Когда свайп не нужен, Swiper вешает `swiper-button-disabled` на обе кнопки
     // (у тебя в разметке это выглядит как `swiper-button-lock swiper-button-disabled`).
-    const hideNav = prev.classList.contains('swiper-button-disabled') && next.classList.contains('swiper-button-disabled');
+    const hideNav =
+      prev.classList.contains('swiper-button-disabled') &&
+      next.classList.contains('swiper-button-disabled');
     dynamicsNav.classList.toggle('is-hidden', hideNav);
   }
 
@@ -266,7 +269,7 @@ function initLocationMap() {
     setTimeout(initLocationMap, 100);
     return;
   }
-  const CENTER = [83.7545, 53.3606];
+  const CENTER = [83.692711, 53.339188];
   window.ymaps3.ready.then(() => {
     const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker } = window.ymaps3;
     const map = new YMap(
@@ -289,7 +292,9 @@ function initLocationMap() {
     img.width = 40;
     img.height = 40;
     markerEl.appendChild(img);
-    const mainMarker = new YMapMarker({ coordinates: CENTER }, markerEl);
+    // В ymaps3 перекрытие маркеров определяется zIndex маркера, а не только CSS внутри DOM-элемента.
+    // Делаем главный пин самым верхним над всеми точками и тултипами.
+    const mainMarker = new YMapMarker({ coordinates: CENTER, zIndex: 2000 }, markerEl);
     map.addChild(mainMarker);
 
     // Маркеры точек категорий (удаляем при смене категории)
@@ -334,7 +339,8 @@ function initLocationMap() {
         }
         wrap.addEventListener('click', onPointClick);
 
-        const yMarker = new YMapMarker({ coordinates: coords }, wrap);
+        // Категорийные точки ниже главного маркера.
+        const yMarker = new YMapMarker({ coordinates: coords, zIndex: 1000 }, wrap);
         map.addChild(yMarker);
         categoryMarkers.push(yMarker);
       });
@@ -375,9 +381,11 @@ initLocationMap();
 // - ширина > 801px: переносим `.choose-appart__nav` и `.choose-appart__compas` внутрь `.choose-appart__info`
 //   и скрываем (фактически убираем) `.choose-appart__wrapp`
 // - ширина <= 801px: возвращаем всё обратно
+// - ширина < 800px: переносим весь `.choose-appart__wrapp` в `.apartment__container` сразу после `.apartment__inner`
 (function initChooseAppartResponsiveDomMove() {
   const MAX_WIDTH = 801;
   const mq = window.matchMedia(`(min-width: ${MAX_WIDTH + 1}px)`);
+  const mqWrappToApartmentContainer = window.matchMedia('(max-width: 799px)');
 
   // Храним ссылки, чтобы при переносах не потерять узлы
   let navEl = null;
@@ -432,9 +440,36 @@ initLocationMap();
     moved = false;
   }
 
+  function repositionWrappInApartmentContainer() {
+    if (mq.matches) return;
+
+    const wrapp =
+      wrappEl && wrappEl.isConnected && wrappEl.classList.contains('choose-appart__wrapp')
+        ? wrappEl
+        : document.querySelector('.choose-appart__wrapp');
+    if (!wrapp) return;
+
+    const container = document.querySelector('.apartment__container');
+    const inner = container && container.querySelector(':scope > .apartment__inner');
+    const chooseinfo = document.querySelector('.apartment__chooseinfo');
+    const info =
+      infoEl && infoEl.isConnected ? infoEl : document.querySelector('.choose-appart__info');
+
+    if (!container || !inner || !chooseinfo || !info) return;
+
+    if (mqWrappToApartmentContainer.matches) {
+      if (wrapp.parentNode !== container || wrapp.previousElementSibling !== inner) {
+        inner.after(wrapp);
+      }
+    } else if (wrapp.parentNode === container) {
+      chooseinfo.insertBefore(wrapp, info);
+    }
+  }
+
   function apply() {
     if (mq.matches) moveToInfo();
     else moveBack();
+    repositionWrappInApartmentContainer();
   }
 
   // Если разметка появится чуть позже (редко, но бывает с partials) — ретраим несколько раз
@@ -452,12 +487,30 @@ initLocationMap();
 
   if (mq.addEventListener) mq.addEventListener('change', apply);
   else mq.addListener(apply);
+  if (mqWrappToApartmentContainer.addEventListener) {
+    mqWrappToApartmentContainer.addEventListener('change', apply);
+  } else mqWrappToApartmentContainer.addListener(apply);
 })();
 
 // Навигация выбора квартиры: стрелки прокручивают список, переключение active, показ SVG этажа
 (function initChooseAppartNav() {
-  const nav = document.querySelector('.choose-appart__nav');
-  const imgBlock = document.querySelector('.choose-appart__img');
+  const apartmentSection = document.querySelector('section.apartment');
+  const hasApartmentChooser =
+    apartmentSection && apartmentSection.querySelector('.apartment__chooseinfo');
+  const choosePageSection = document.querySelector('section.choose-appart');
+
+  let nav;
+  let imgBlock;
+  if (hasApartmentChooser) {
+    nav = apartmentSection.querySelector('.choose-appart__nav');
+    imgBlock = apartmentSection.querySelector('.apartment__chooseinfo .choose-appart__img');
+  } else if (choosePageSection) {
+    nav = choosePageSection.querySelector('.choose-appart__nav');
+    imgBlock = choosePageSection.querySelector('.choose-appart__img');
+  } else {
+    nav = document.querySelector('.choose-appart__nav');
+    imgBlock = document.querySelector('.choose-appart__img');
+  }
   if (!nav) return;
   const list = nav.querySelector('.choose-appart__list');
   const arrowUp = nav.querySelector('div:first-child');
@@ -465,13 +518,18 @@ initLocationMap();
   if (!list || !arrowUp || !arrowDown) return;
 
   const items = Array.from(list.querySelectorAll('li'));
-  const step = 40 + 16;
   const floorPlans = imgBlock ? imgBlock.querySelectorAll('.choose-appart__floor-plan') : [];
 
   function setActive(li) {
     items.forEach((el) => el.classList.remove('active'));
     if (li) li.classList.add('active');
-    switchFloorPlan(li ? parseInt(li.textContent.trim(), 10) : null);
+    const floorNum = li ? parseInt(li.textContent.trim(), 10) : null;
+    switchFloorPlan(Number.isNaN(floorNum) ? null : floorNum);
+    if (li && !Number.isNaN(floorNum) && document.querySelector('.apartment__chooseinfo')) {
+      document.dispatchEvent(
+        new CustomEvent('apartment:choose-floor', { detail: { floor: floorNum } }),
+      );
+    }
   }
 
   function switchFloorPlan(floorNum) {
@@ -481,9 +539,31 @@ initLocationMap();
     });
   }
 
-  function getActiveIndex() {
-    const active = list.querySelector('li.active');
-    return active ? items.indexOf(active) : 0;
+  /** Шаг прокрутки «на один этаж»: реальные размеры li + gap (без active — сдвигаем окно ровно на одну ячейку) */
+  function getListScrollStepPx() {
+    if (!items.length) return 45;
+    const cs = getComputedStyle(list);
+    const gap = parseFloat(cs.gap) || 0;
+    const r = items[0].getBoundingClientRect();
+    const row = cs.flexDirection === 'row' || cs.flexDirection === 'row-reverse';
+    return Math.round((row ? r.width : r.height) + gap);
+  }
+
+  /** direction: −1 первая стрелка (в ряду — влево), +1 вторая (в ряду — вправо). Active не меняется. */
+  function scrollListOneItem(direction) {
+    const cs = getComputedStyle(list);
+    const fd = cs.flexDirection;
+    const step = getListScrollStepPx();
+    const row = fd === 'row' || fd === 'row-reverse';
+
+    if (row) {
+      list.scrollBy({ left: direction * step, behavior: 'smooth' });
+      return;
+    }
+
+    // column / column-reverse: в обоих случаях положительный scrollTop — «вниз» по контенту;
+    // отдельная инверсия для column-reverse давала противоположные стрелкам вверх/вниз смещения.
+    list.scrollBy({ top: direction * step, behavior: 'smooth' });
   }
 
   // Показать SVG того этажа, который активен в списке при загрузке
@@ -496,23 +576,8 @@ initLocationMap();
     if (li) setActive(li);
   });
 
-  // Стрелка вверх — предыдущий пункт, active и прокрутка
-  arrowUp.addEventListener('click', () => {
-    const idx = getActiveIndex();
-    if (idx <= 0) return;
-    const prev = items[idx - 1];
-    setActive(prev);
-    prev.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-  });
-
-  // Стрелка вниз — следующий пункт, active и прокрутка
-  arrowDown.addEventListener('click', () => {
-    const idx = getActiveIndex();
-    if (idx >= items.length - 1) return;
-    const next = items[idx + 1];
-    setActive(next);
-    next.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-  });
+  arrowUp.addEventListener('click', () => scrollListOneItem(-1));
+  arrowDown.addEventListener('click', () => scrollListOneItem(1));
 })();
 
 // Модалка квартиры при наведении на .choose-appart__link — данные из data-атрибутов, позиция у курсора
@@ -662,6 +727,103 @@ initLocationMap();
   });
 })();
 
+// Показать choose-appart__info по клику на генплан или выбору этажа в списке
+(function initApartmentGenplanChooseInfo() {
+  const apartmentInfo = document.querySelector('.apartment__info');
+  if (!apartmentInfo) return;
+
+  const genplanWrap = apartmentInfo.querySelector('.apartment__genplan');
+  const chooseInfoWrap = apartmentInfo.querySelector('.apartment__chooseinfo');
+  if (!genplanWrap || !chooseInfoWrap) return;
+
+  const genplanLinks = apartmentInfo.querySelectorAll('.genplan__link');
+
+  const chooseInfo = chooseInfoWrap.querySelector('.choose-appart__info');
+  const backBtn = chooseInfo ? chooseInfo.querySelector('.choose-appart__back') : null;
+  const floorEl = chooseInfo ? chooseInfo.querySelector('.choose-appart__floor') : null;
+  const floorPlans = chooseInfo ? chooseInfo.querySelectorAll('.choose-appart__floor-plan') : [];
+
+  const tooltip = document.getElementById('genplan-tooltip');
+
+  function setActiveFloor(floorNum) {
+    const floorStr = String(floorNum);
+    if (floorEl) floorEl.textContent = `${floorStr}`;
+    floorPlans.forEach((plan) => {
+      const planFloor = plan.getAttribute('data-floor');
+      plan.classList.toggle('is-active', planFloor === floorStr);
+    });
+
+    // Список может быть вынесен из `.apartment__chooseinfo` (например, в `.apartment__container`)
+    const apartmentRoot = apartmentInfo.closest('.apartment');
+    const listScope = apartmentRoot || apartmentInfo;
+    const listItems = listScope.querySelectorAll('.choose-appart__list li.choose-appart__item');
+    if (listItems && listItems.length) {
+      const targetN = parseInt(floorStr, 10);
+      listItems.forEach((li) => {
+        const n = parseInt(String(li.textContent || '').trim(), 10);
+        li.classList.toggle('active', n === targetN);
+      });
+    }
+  }
+
+  function showChooseInfo(floorNum) {
+    apartmentInfo.classList.add('apartment__info--choose-active');
+    genplanWrap.style.display = 'none';
+    chooseInfoWrap.style.display = 'block';
+
+    if (tooltip) {
+      tooltip.classList.remove('is-visible');
+      tooltip.setAttribute('aria-hidden', 'true');
+    }
+
+    setActiveFloor(floorNum);
+  }
+
+  function clearChooseAppartFloorListActive() {
+    const apartmentRoot = apartmentInfo.closest('.apartment');
+    const listScope = apartmentRoot || apartmentInfo;
+    listScope.querySelectorAll('.choose-appart__list li.choose-appart__item').forEach((li) => {
+      li.classList.remove('active');
+    });
+  }
+
+  function showGenplan() {
+    apartmentInfo.classList.remove('apartment__info--choose-active');
+    chooseInfoWrap.style.display = 'none';
+    genplanWrap.style.display = 'block';
+    clearChooseAppartFloorListActive();
+
+    if (tooltip) {
+      tooltip.classList.remove('is-visible');
+      tooltip.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  if (backBtn) {
+    backBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      showGenplan();
+    });
+  }
+
+  document.addEventListener('apartment:choose-floor', (e) => {
+    const raw = e.detail && e.detail.floor;
+    if (raw === undefined || raw === null || raw === '') return;
+    showChooseInfo(raw);
+  });
+
+  if (genplanLinks.length) {
+    genplanLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const floorNum = link.getAttribute('data-floor');
+        if (!floorNum) return;
+        showChooseInfo(floorNum);
+      });
+    });
+  }
+})();
+
 // Переключение «Квартира» / «На этаже»: активная кнопка и смена картинки
 (function initAppartDetailTabs() {
   const container = document.querySelector('.appart-detail');
@@ -681,6 +843,150 @@ initLocationMap();
         item.classList.toggle('is-active', item.getAttribute('data-appart-view') === tab);
       });
     });
+  });
+})();
+
+// PDF для страницы квартиры: собираем отдельный print-шаблон (как на макете) и печатаем в PDF
+(function initAppartDetailPdf() {
+  const root = document.querySelector('.appart-detail');
+  if (!root) return;
+  const btn = root.querySelector('a.appart-detail__pdf');
+  if (!btn) return;
+
+  function escapeHtml(v) {
+    return String(v ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  function textOf(selector) {
+    const el = root.querySelector(selector);
+    return (el?.textContent || '').trim();
+  }
+
+  function parseNumberLikeRu(str) {
+    // "5 123 000 ₽" -> 5123000 ; "56,3 м2" -> 56.3
+    const s = String(str || '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const normalized = s
+      .replace(/[^\d,.-]/g, '')
+      .replace(/\s/g, '')
+      .replace(',', '.');
+    const n = Number(normalized);
+    return Number.isFinite(n) ? n : null;
+  }
+
+  function formatRub(n) {
+    try {
+      return new Intl.NumberFormat('ru-RU').format(n) + ' ₽';
+    } catch {
+      return String(n) + ' ₽';
+    }
+  }
+
+  function formatRubPerM2(n) {
+    // 90994.67 -> "90 994,67 ₽"
+    try {
+      return (
+        new Intl.NumberFormat('ru-RU', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }).format(n) + ' ₽'
+      );
+    } catch {
+      return String(n) + ' ₽';
+    }
+  }
+
+  function getSvgOuterHtml(view) {
+    const svg = root.querySelector(`.appart-detail__img-item[data-appart-view="${view}"] svg`);
+    return svg ? svg.outerHTML : '';
+  }
+
+  function buildPrintHtml() {
+    const title = textOf('.appart-detail__title');
+    const sqrRaw = textOf('.appart-detail__sqr');
+    const priceRaw = textOf('.appart-detail__price');
+
+    const infoBlocks = Array.from(root.querySelectorAll('.appart-detail__information > div')).map(
+      (d) => {
+        const head = (d.querySelector('.appart-detail__head')?.textContent || '').trim();
+        const value = (d.querySelector('.appart-detail__value')?.textContent || '').trim();
+        return { head, value };
+      },
+    );
+
+    const floor = infoBlocks.find((x) => /этаж/i.test(x.head || ''))?.value || '';
+    const section = infoBlocks.find((x) => /блок/i.test(x.head || ''))?.value || '';
+
+    const sqr = parseNumberLikeRu(sqrRaw);
+    const price = parseNumberLikeRu(priceRaw);
+    const pricePerM2 = price && sqr ? price / sqr : null;
+
+    const phone =
+      (document.querySelector('.footer__info--phone')?.textContent || '').trim() ||
+      (document.querySelector('.header__phone')?.textContent || '').trim();
+    const email = (document.querySelector('.footer__info--mail')?.textContent || '').trim();
+    const addrLines = Array.from(document.querySelectorAll('.footer__info--text p'))
+      .map((p) => (p.textContent || '').trim())
+      .filter(Boolean);
+
+    const apartSvg = getSvgOuterHtml('apart');
+    const floorSvg = getSvgOuterHtml('floor');
+
+    const priceStr = price ? formatRub(price) : priceRaw;
+    const pricePerM2Str = pricePerM2 ? formatRubPerM2(pricePerM2) : '';
+
+    const addrHtml = addrLines
+      .map((l) => `<div class="pdf__muted">${escapeHtml(l)}</div>`)
+      .join('');
+    const phoneHtml = phone ? `<a href="#">${escapeHtml(phone)}</a>` : '';
+    const emailHtml = email ? `<a href="#">${escapeHtml(email)}</a>` : '';
+    const baseHref = `${window.location.origin}${import.meta.env.BASE_URL || '/'}`;
+
+    const replacements = {
+      '%%BASE_HREF%%': baseHref,
+      '%%TITLE%%': escapeHtml(title),
+      '%%SQR%%': escapeHtml(sqrRaw),
+      '%%FLOOR%%': escapeHtml(floor),
+      '%%SECTION%%': escapeHtml(section),
+      '%%PRICE%%': escapeHtml(priceStr),
+      '%%PRICE_PER_M2%%': escapeHtml(pricePerM2Str || ''),
+      '%%PHONE_HTML%%': phoneHtml,
+      '%%EMAIL_HTML%%': emailHtml,
+      '%%ADDR_HTML%%': addrHtml,
+      // SVG вставляем как “сырой” HTML (без escape)
+      '%%APART_SVG%%': apartSvg || '',
+      '%%FLOOR_SVG%%': floorSvg || '',
+    };
+
+    let html = appartDetailPdfTemplate;
+    Object.entries(replacements).forEach(([key, value]) => {
+      html = html.split(key).join(value);
+    });
+    return html;
+  }
+
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const html = buildPrintHtml();
+    // В Chrome/Edge фичи вроде `noreferrer` могут вернуть `null` вместо ссылки на окно,
+    // из-за чего мы не сможем записать HTML (в итоге пользователь видит пустую страницу).
+    const w = window.open('', '_blank');
+    if (!w) return;
+    try {
+      w.document.open();
+      w.document.write(html);
+      w.document.close();
+    } catch (err) {
+      // Фоллбек: если запись в окно заблокировали — открываем как data: URL
+      const encoded = encodeURIComponent(html);
+      window.open(`data:text/html;charset=utf-8,${encoded}`, '_blank');
+    }
   });
 })();
 

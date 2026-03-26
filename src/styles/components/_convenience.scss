@@ -28,11 +28,12 @@
   display: block;
   width: 352px;
   width: clamp(280px, 7.405rem + 16.22vw, 352px);
-  height: auto;
+  height: clamp(280px, 7.405rem + 16.22vw, 352px);
   object-fit: contain;
-  margin: 0 auto 20px;
+  margin: 50px auto 50px;
   transition: transform 3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
+
 .convenience__info {
   margin-bottom: 12px;
   display: flex;

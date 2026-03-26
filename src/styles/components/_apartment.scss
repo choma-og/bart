@@ -1,406 +1,325 @@
 .apartment {
   position: relative;
 
-		&__container {
-      position: relative;
-		}
-    &__decor {
+  &__container {
+    position: relative;
+  }
+  &__decor {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    &--big {
       position: absolute;
       top: 40%;
       left: 50%;
       transform: translateX(-50%);
       z-index: -1;
-      @media (min-width: 1600px) {
-        display: none;
-      }
-      @media (max-width:650px) {
-        display: none;
-      }
-      &--big {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: -1;
-        @media (max-width: 1600px) {
-          display: none;
-        }
-      }
+      display: none;
     }
+  }
 
-		&__inner {
-		}
+  &__info {
+    position: relative;
+    &--choose-active .apartment__genplan {
+      display: none !important;
+    }
+  }
 
-		&__info {
-      position: relative;
-		}
+  // (вынесены media-запросы ниже; базовых правил нет)
 
-		&__link {
-		}
-
-		&__img {
-      position: relative;
-      overflow-x: auto;
-      width: 100%;
-		}
+  &__img {
+    position: relative;
+    overflow-x: auto;
+    width: 100%;
+  }
 }
 
 .choose-appart {
   padding-top: 30px;
   padding-bottom: 160px;
-		&__container {
-		}
-
-		&__inner {
-    @media (max-width:801px) {
-      flex-direction: column;
-      }
-		}
-    &__wrapp {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      justify-content: space-between;
-      margin-bottom: 20px;
+  &__back {
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    width: auto;
+    height: auto;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 16px;
+    color: #26202e;
+    @media (max-width: 1250px) {
+      top: 20px;
+      left: 20px;
     }
-
-		&__info {
-      padding: 40px;
-      position: relative;
-      background-color: #EAE8EC;
-      min-height: 740px;
-      @media (max-width:1250px) {
-        padding: 20px;
-      }
-      @media (max-width:800px) {
-        min-width: 0;
-        width: 100%;
-        max-width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-      }
-      @media (max-width:650px) {
-        min-height: 650px;
-      }
-		}
-
-		&__floor {
-      position: absolute;
-      left: 40px;
-      top: 40px;
-      color: #26202E;
-      font-size: 20px;
-      @media (max-width:1250px) {
-        left: 20px;
-        top: 20px;
-      }
-      @media (max-width:650px) {
-        font-size: 14px;
-      }
-		}
-
-		&__availability {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      position: absolute;
-      bottom: 40px;
-      left: 40px;
-      @media (max-width:1250px) {
-        left: 20px;
-        bottom: 20px;
-      }
-		}
-
-		&__value {
-      position: relative;
+    @media (max-width: 650px) {
       font-size: 14px;
-      padding-left: 26px;
-      &::before {
-        content: "";
-        width: 16px;
-        height: 16px;
-        position: absolute;
-        left: 0;
-        top: 0px;
-      }
-      &.free::before {
-        background-color: #BDD2B9;
-      }
-      &.notfree::before {
-        background-color: #E2BAB2;
-      }
-		}
+    }
+  }
+  /* &__container без дополнительных правил */
 
-		&__compas {
-      position: absolute;
-      right: 40px;
-      top: 40px;
-      @media (max-width:1250px) {
-        right: 20px;
-        top: 20px;
-      }
-      @media (max-width:801px) {
-        position: static;
-        width: 36px;
-        height: auto;
-      }
-		}
+  // (вынесены media-запросы ниже; базовых правил нет)
+  &__wrapp {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
 
-		&__img {
+  &__info {
+    padding: 40px;
+    position: relative;
+    background-color: #eae8ec;
+    min-height: 810px;
+  }
+
+  &__floor {
+    position: absolute;
+    left: 40px;
+    top: 100px;
+    color: #26202e;
+    font-size: 36px;
+  }
+
+  &__availability {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+  }
+
+  &__value {
+    position: relative;
+    font-size: 14px;
+    padding-left: 26px;
+    &::before {
+      content: '';
+      width: 16px;
+      height: 16px;
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-      z-index: 1;
-      svg {
-        width: 466px;
-      }
-      @media (max-width:800px) {
-        position: static;
-        transform: none;
-        width: 100%;
-        box-sizing: border-box;
-        padding-top: 50px;
-        svg {
-          width: 750px;
-          min-width: 750px;
-          height: 530px;
-        }
-      }
-      @media (max-width:650px) {
-        svg {
-          width: 600px;
-          min-width: 600px;
-        }
-      }
-		}
-		&__img-inner {
-      @media (max-width:800px) {
-        margin-left: auto;
-        margin-right: auto;
-        width: 750px;
-        min-width: 750px;
-        height: 530px;
-        position: relative;
-      }
-      @media (max-width:650px) {
-        width: 600px;
-        min-width: 600px;
-      }
-		}
-		&__floor-plan {
-      display: none;
-      &.is-active {
-        display: block;
-      }
-		}
-		// Картинка этажа не перехватывает клики/ховер — события идут на полигоны-ссылки
-		&__floor-img {
-      pointer-events: none;
-		}
+      left: 0;
+      top: 0px;
+    }
+    &.free::before {
+      background-color: #bdd2b9;
+    }
+    &.notfree::before {
+      background-color: #e2bab2;
+    }
+  }
+
+  &__compas {
+    position: absolute;
+    right: 40px;
+    top: 40px;
+  }
+
+  &__img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    svg {
+      width: 466px;
+    }
+  }
+  &__floor-plan {
+    display: none;
+    &.is-active {
+      display: block;
+    }
+  }
+  // Картинка этажа не перехватывает клики/ховер — события идут на полигоны-ссылки
+  &__floor-img {
+    pointer-events: none;
+  }
 }
 
 .choose-appart {
-    &__location {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      height: 640px;
-      width: 570px;
-      pointer-events: none; /* клики проходят к ссылкам плана этажа */
-      @media (max-width:800px) {
-        height: 600px;
-      }
-    }
+  &__location {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 640px;
+    width: 570px;
+    pointer-events: none; /* клики проходят к ссылкам плана этажа */
+  }
 
-    &__title {
-      @media (max-width:1250px) {
-        width: 100%;
-      }
+  &__street-1 {
+    color: #928d9d;
+    font-size: 14px;
+    left: 50%;
+    top: 0;
+    position: absolute;
+    transform: translateX(-50%);
+    @media (max-width: 650px) {
+      font-size: 12px;
     }
-    &__street-1 {
-      color: #928D9D;
-      font-size: 14px;
-      left: 50%;
-      top: 0;
-      position: absolute;
-      transform: translateX(-50%);
+  }
+  &__street-2 {
+    color: #928d9d;
+    font-size: 14px;
+    left: 50%;
+    bottom: 0;
+    position: absolute;
+    transform: translateX(-50%);
+    @media (max-width: 650px) {
+      font-size: 12px;
     }
-    &__street-2 {
-      color: #928D9D;
-      font-size: 14px;
-      left: 50%;
-      bottom: 0;
-      position: absolute;
-      transform: translateX(-50%);
-    }
-		&__nav {
-      position: absolute;
-      bottom: 40px;
-      right: 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      height: 508px;
-      max-height: 508px;
-      @media (max-width:1250px) {
-        right: 20px;
-        bottom: 20px;
-      }
-      @media (max-width:801px) {
-        position: static;
-        flex-direction: row;
-        height: auto;
-        max-width: 440px;
-        gap: 0;
-      }
-      @media (max-width:650px) {
-        max-width: 254px;
-      }
-      // Фиксированная высота нужна, чтобы список между стрелками получил место и прокручивался
-      & > div {
-        flex-shrink: 0;
-        cursor: pointer;
-      }
-		}
-    &__link {
+  }
+  &__nav {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    height: 508px;
+    max-height: 508px;
+    // Фиксированная высота нужна, чтобы список между стрелками получил место и прокручивался
+    & > div {
+      flex-shrink: 0;
       cursor: pointer;
-      &.free {
-        fill: rgba(189, 210, 185, 0.5);
-        &:hover {
-          fill: rgba(189, 210, 185, 1);
-        }
-      }
     }
-
-		&__item {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      color: #625B6D;
-      cursor: pointer;
-      transition: all .2s ease;
+  }
+  &__link {
+    cursor: pointer;
+    &.free {
+      fill: rgba(189, 210, 185, 0.5);
       &:hover {
-        background-color: #AEAAB7;
-        color: #FFFFFF;
+        fill: rgba(189, 210, 185, 1);
       }
-      &.active {
-        
-        background-color: rgba(98, 91, 109, 1);
-        color: #FFFFFF;
-      }
-      // В кнопках-стрелках нава: первая SVG — десктоп (≥800px), вторая — мобильная (<800px)
-      & svg:first-of-type {
-        display: block;
-        @media (max-width: 800px) {
-          display: none;
-        }
-      }
-      & svg:last-of-type {
-        display: none;
-        @media (max-width: 800px) {
-          display: block;
-        }
-      }
-		}
+    }
+  }
 
-		&__list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      flex: 1 1 0;
-      min-height: 0;
-      overflow-y: auto;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      &::-webkit-scrollbar {
-        display: none;
-      }
-      @media (max-width:801px) {
-        flex-direction: row;
-        gap: 5px;
-      }
-      li {
-        flex-shrink: 0;
-      }
-		}
+  &__item {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #625b6d;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    &-cursor {
+      height: 20px;
+    }
+    &:hover {
+      color: var(--color-accent);
+    }
+    &.active {
+      background-color: rgba(98, 91, 109, 1);
+      color: #ffffff;
+    }
+    // В кнопках-стрелках нава: первая SVG — десктоп (≥800px), вторая — мобильная (<800px)
+    & svg:first-of-type {
+      display: block;
+    }
+    & svg:last-of-type {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 16px;
+    flex: 1 1 0;
+    min-height: 0;
+    overflow-y: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    li {
+      flex-shrink: 0;
+    }
+  }
 }
 
 .flat-modal {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 1000;
-    display: none;
-    align-items: center;
-    min-width: 345px;
-    pointer-events: none;
-    &.is-visible {
-      display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  min-width: 345px;
+  pointer-events: none;
+  &.is-visible {
+    display: flex;
+  }
+  &__image {
+    padding: 13px;
+    background-color: white;
+  }
+
+  &__img {
+    img {
+      width: 120px;
+      height: 120px;
     }
-		&__image {
-      padding: 13px;
-      background-color: white;
-		}
+  }
 
-		&__img {
+  &__info {
+    padding: 20px 35px 20px 20px;
+    background-color: #26202e;
+  }
 
-      img {
-        width: 120px;
-        height: 120px;
-      }
-		}
+  &__availability {
+    font-size: 14px;
+    color: white;
+    display: block;
+    margin-bottom: 7px;
+  }
 
-		&__info {
-      padding: 20px 35px 20px 20px;
-      background-color: #26202E;
-		}
+  &__price {
+    font-size: 20px;
+    color: white;
+    display: block;
+    margin-bottom: 8px;
+  }
 
-		&__availability {
-      font-size: 14px;
-      color: white;
-      display: block;
-      margin-bottom: 7px;
-		}
+  &__head {
+    color: #928d9d;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 4px;
+  }
 
-		&__price {
-      font-size: 20px;
-      color: white;
-      display: block;
-      margin-bottom: 8px;
-		}
+  &__descr {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
 
-		&__head {
-      color: #928D9D;
-      font-size: 14px;
-      display: block;
-      margin-bottom: 4px;
-		}
+  &__sqr {
+    color: #928d9d;
+    font-size: 14px;
+  }
 
-		&__descr {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-		}
-
-		&__sqr {
-      color: #928D9D;
-      font-size: 14px;
-		}
-
-		&__etaj {
-      color: #928D9D;
-      font-size: 14px;
-		}
+  &__etaj {
+    color: #928d9d;
+    font-size: 14px;
+  }
 }
 
 .genplan {
@@ -451,15 +370,58 @@
   }
 }
 
-@media (max-width: 780px) {
+// ------------------------------
+// Media queries (moved to bottom)
+// ------------------------------
+
+@media (min-width: 1750px) {
+  .apartment__decor {
+    display: none;
+  }
+  .apartment__decor--big {
+    display: block;
+  }
+}
+
+@media (max-width: 1250px) {
+  .choose-appart__info {
+    padding: 20px;
+  }
+
+  .choose-appart__floor {
+    left: 20px;
+    top: 60px;
+  }
+
+  .choose-appart__availability {
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .choose-appart__compas {
+    right: 20px;
+    top: 20px;
+  }
+
+  .choose-appart__nav {
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .choose-appart__title {
+    width: 100%;
+  }
+}
+
+@media (max-width: 800px) {
   .genplan image {
-      height: auto;
-      width: 100%;
-      object-position: center;
+    height: auto;
+    width: 100%;
+    object-position: center;
   }
   .genplan {
-    width: 810px;
-    height: 460px;
+    width: auto;
+    height: 650px;
     display: block;
     overflow-x: auto;
     object-position: center;
@@ -470,9 +432,118 @@
   .apartment__inner {
     padding: 0 30px;
   }
+
+  /* `.choose-appart__wrapp` при <800px переносится в DOM сразу после `.apartment__inner` */
+  .apartment__container > .choose-appart__wrapp {
+    padding: 0 30px;
+    box-sizing: border-box;
+  }
+
+  .choose-appart__location {
+    height: 510px;
+    top: 42%;
+  }
+
+  .choose-appart__inner {
+    flex-direction: column;
+  }
+
+  .choose-appart__compas {
+    position: static;
+    width: 36px;
+    height: auto;
+    min-width: 36px;
+  }
+
+  .choose-appart__nav {
+    position: static;
+    flex-direction: row;
+    height: auto;
+    max-width: 440px;
+    gap: 0;
+  }
+
+  .choose-appart__list {
+    flex-direction: row;
+    gap: 5px;
+  }
+  .choose-appart__item svg:first-of-type {
+    display: none;
+  }
+
+  .choose-appart__item svg:last-of-type {
+    display: block;
+  }
+  .choose-appart__info {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    min-height: 600px;
+  }
+  .choose-appart__img {
+    position: static;
+    transform: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 70px;
+  }
+  .choose-appart__img-inner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 750px;
+    min-width: 750px;
+    height: 530px;
+    position: relative;
+  }
+  .choose-appart__img svg {
+    width: 750px;
+    min-width: 750px;
+    height: 450px;
+  }
 }
-@media(max-width:650px) {
+
+@media (max-width: 700px) {
+}
+
+@media (max-width: 650px) {
   .apartment__inner {
     padding: 0 20px;
+  }
+
+  .apartment__container > .choose-appart__wrapp {
+    padding: 0 20px;
+  }
+  .apartment__decor {
+    display: none;
+  }
+  .choose-appart__floor {
+    font-size: 22px;
+  }
+
+  .choose-appart__nav {
+    max-width: 254px;
+  }
+  .choose-appart__img-inner {
+    width: 600px;
+    min-width: 600px;
+  }
+  .choose-appart__info {
+    min-height: 650px;
+  }
+  .choose-appart__img svg {
+    width: 570px;
+    min-width: 570px;
+  }
+
+  .choose-appart__img svg {
+    // width: 600px;
+    // min-width: 600px;
+  }
+
+  .choose-appart__img-inner {
+    // width: 600px;
+    // min-width: 600px;
   }
 }

@@ -44,20 +44,25 @@
       overflow: visible; // чтобы ::before мог вылезать за пределы блока
       &::before {
         position: absolute;
-        width: 70%;
+        width: 80%;
         height: 100%;
         left: -10px;
-        top: 20px;
+        top: 15px;
         content: "";
         background-color: #EAE8EC;
+        /* Диагональный край по макету */
+        /* Срезаем "правый низ", чтобы диагональ шла в нужном направлении */
+        clip-path: polygon(0 0, 100% 0, calc(100% - 140px) 100%, 0 100%);
+
+        /* "Выезд" из-под картинки */
         opacity: 0;
-        visibility: hidden;
-        transition: all .1s ease;
+        transform: translate(28px, -28px);
+        transition: transform .35s cubic-bezier(0.165, 0.84, 0.44, 1), opacity .2s ease;
         z-index: 0;
       }
       .dynamics-gallery:hover &::before {
         opacity: 1;
-        visibility: visible;
+        transform: translate(0, 0);
       }
       &-inner {
         position: absolute;

@@ -59,7 +59,9 @@
       display: block;
       line-height: 0;
       transform: translate(-50%, -50%);
-      z-index: 2; // выше точек категорий, ниже тултипов
+      // Перекрытие на карте задаём через zIndex маркера в JS (YMapMarker),
+      // а здесь держим нейтральный стек, чтобы не мешать кликам/слоям.
+      z-index: 1;
       position: relative;
       img {
         width: 40px;
@@ -81,7 +83,8 @@
       cursor: pointer;
       z-index: 1;
       &.is-tooltip-visible {
-        z-index: 999;
+        // Не поднимаем слишком высоко, чтобы главный пин мог оставаться поверх всего.
+        z-index: 2;
       }
     }
     &__point {
@@ -97,7 +100,7 @@
     // Тултип над точкой (как на макете: белый фон, чёрная рамка, стрелка вниз)
     &__tooltip {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     left: 50%;
     bottom: 100%;
     transform: translateX(-50%) translateY(-6px);

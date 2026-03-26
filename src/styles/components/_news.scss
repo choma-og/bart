@@ -42,10 +42,16 @@
 }
 
 .news-swiper {
+    // position: relative;
+    // margin-right: -1000%;
+    // padding-right: 1000%;
+    // overflow: visible;
+    @media(max-width:650px) {
     position: relative;
     margin-right: -1000%;
     padding-right: 1000%;
     overflow: visible;
+    }
   &__link {
     position: relative;
     display: block;
