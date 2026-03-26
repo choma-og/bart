@@ -757,7 +757,7 @@ button:disabled {
 }
 .hero__container {
   padding-top: 350px;
-  padding-top: clamp(140px, -2.049rem + 26.58vw, 350px);
+  padding-top: clamp(140px, -2.049rem + 26.58vw, 260px);
 }
 @media (max-width: 1250px) {
   .hero__wrapper {
@@ -1316,6 +1316,10 @@ button:disabled {
 }
 .purchase__item {
   background-color: #26202E;
+  background-image: linear-gradient(rgba(38, 32, 46, 0.8), rgba(38, 32, 46, 0.8)), url("/bart/assets/img/1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   padding: 30px;
   position: relative;
   overflow: hidden;
@@ -1332,22 +1336,28 @@ button:disabled {
   }
 }
 .purchase__item:hover {
-  background-image: linear-gradient(rgba(38, 32, 46, 0.8), rgba(38, 32, 46, 0.8)), url("/bart/assets/img/1.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   background-color: #26202E;
+  background-image: none;
 }
 .purchase__item:hover .purchase__text {
   opacity: 1;
   visibility: visible;
+  transform: translateY(0);
 }
 .purchase__item:hover .purchase__sublink {
   opacity: 1;
   visibility: visible;
+  color: white;
+  cursor: pointer;
+  transform: translateY(0);
+}
+.purchase__item:hover .purchase__sublink svg path {
+  stroke: #FFFFFF;
 }
 .purchase__item:hover .purchase__decor {
-  display: none;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 .purchase__info {
   position: relative;
@@ -1361,6 +1371,8 @@ button:disabled {
   color: #EAE8EC;
   opacity: 0;
   visibility: hidden;
+  transform: translateY(24px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 .purchase__sublink {
   position: relative;
@@ -1374,12 +1386,19 @@ button:disabled {
   cursor: pointer;
   width: -moz-fit-content;
   width: fit-content;
+  transform: translateY(24px);
+  transition: opacity 0.35s ease, transform 0.35s ease, color 0.3s ease;
 }
 .purchase__decor {
   position: absolute;
   bottom: 0;
   left: 0;
   z-index: 1;
+  opacity: 0;
+  width: 500px;
+  visibility: hidden;
+  transform: translateY(24px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 @media (max-width: 1250px) {
   .purchase__list {
@@ -1705,10 +1724,14 @@ button:disabled {
   background-color: #eae8ec;
   min-height: 810px;
 }
-.choose-appart__floor {
+.choose-appart__nomer {
   position: absolute;
   left: 40px;
   top: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.choose-appart__floor {
   color: #26202e;
   font-size: 36px;
 }
@@ -1979,7 +2002,7 @@ button:disabled {
   .choose-appart__info {
     padding: 20px;
   }
-  .choose-appart__floor {
+  .choose-appart__nomer {
     left: 20px;
     top: 60px;
   }
@@ -2004,6 +2027,11 @@ button:disabled {
     height: auto;
     width: 100%;
     object-position: center;
+  }
+  .choose-appart__nomer {
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
   }
   .genplan {
     width: auto;
