@@ -232,7 +232,7 @@ const appartDetailPdfTemplate = `<!doctype html>
         margin-bottom: 40px;
        }
        .pdf {
-        height: 100vh;
+        height: auto;
        }
       .pdf__descr {
         max-width: 240px;
@@ -281,8 +281,9 @@ const appartDetailPdfTemplate = `<!doctype html>
       }
       .pdf__price {
         color: #26202E;
-        font-size: 24px;
+        font-size: 34px;
         font-family: "Helios", sans-serif;
+        line-height: 1;
       }
       .pdf__street-1 {
         position: absolute;
@@ -297,7 +298,18 @@ const appartDetailPdfTemplate = `<!doctype html>
         transform: translateX(-50%);
       }
       .pdf__planSmall {
-
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        max-height: 450px;
+        overflow: hidden;
+      }
+      .pdf__planSmall svg {
+        width: auto;
+        height: auto;
+        max-height: 360px;
+        max-width: 460px;
+        display: block;
       }
       .pdf__street-2 {
         position: absolute;
@@ -311,7 +323,7 @@ const appartDetailPdfTemplate = `<!doctype html>
         grid-template-columns: 1fr 1fr;
         gap: 40px;
         align-items: flex-end;
-        max-width: 300px;
+        max-width: 400px;
       }
       .pdf__head {
         color: #928D9D;
@@ -384,6 +396,11 @@ const appartDetailPdfTemplate = `<!doctype html>
         pointer-events: none;
       }
       @media print {
+        .pdf {
+          height: auto !important;
+          break-inside: avoid-page;
+          page-break-inside: avoid;
+        }
         a {
           color: #26202e;
           text-decoration: none;
