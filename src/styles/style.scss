@@ -1,28 +1,27 @@
 // базовые подключения
-@import './settings';
-@import './mixins';
 @import './fonts';
 @import './vars';
+@import './mixins';
+@import './settings';
 
 // компоненты страницы
 
 // подключения компонентов страницы (большие компоненты)
 @import './components/header';
 @import './components/hero';
-@import './components/detail-about';
-@import './components/deciding';
-@import './components/convenience';
-@import './components/safety';
-@import './components/dynamics';
-@import './components/purchase';
-@import './components/location';
-@import './components/documents';
-@import './components/news';
-@import './components/apartment';
-@import './components/breadcrumbs';
-@import './components/appart-detail.scss';
-@import './components/similar';
-@import './components/modal';
+@import './components/bestseller';
+@import './components/advantages';
+@import './components/image';
+@import './components/category';
+@import './components/sertificate';
+@import './components/reviews';
+@import './components/edge';
+@import './components/skidka';
+@import './components/contacts';
+@import './components/questions';
+@import './components/quality';
+@import './components/banner';
+@import './components/catalog-item';
 @import './components/footer';
 
 // подключения компонентов страницы (маленькие компоненты)

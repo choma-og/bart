@@ -1,0 +1,144 @@
+.bestseller {
+  position: relative;
+  padding-bottom: 150px;
+		&__container {
+		}
+
+		&__list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 670px));
+      gap: 20px;
+      /* justify-content: space-between; */
+      justify-content: center;
+      position: relative;
+      z-index: 2;   
+		}
+
+		&__poster {
+      position: relative;
+		}
+    &-decor {
+      position:absolute;
+      z-index: 1;
+      &--1 {
+        bottom: 0;
+        left: 0;
+      }
+      &--2 {
+        top: 0;
+        right: 0;
+      }
+    }
+
+		&__label {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      padding: 10px 16px;
+      border-radius: 60px;
+      background-color: transparent;
+      border: 1px solid #FFFDF4;
+      font-size: 16px;
+      font-weight: 600;
+      z-index: 1;
+      color: #FFFDF4;
+		}
+
+		&__img {
+      position: relative;
+      // height: 100%;
+      padding-top: 133%;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 40px;
+      }
+		}
+
+		&__positions {
+      padding: 60px;
+      background-color: #F3F0E2;
+      border-radius: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+		}
+
+		&__subhead {
+      color: #608819;
+      margin-bottom: 16px;
+      font-size: 20px;
+      line-height: 140%;
+		}
+
+		&__head {
+      font-size: 64px;
+      line-height: 1;
+      margin-bottom: 64px;
+      font-family: "ZTC";
+      color: #243506;
+      max-width: 390px;
+      text-align: center;
+		}
+
+		&__sublist {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+		}
+}
+
+.sublist-bestseller {
+
+		&__item {
+      border-radius: 200px 200px 16px 16px;
+      overflow: hidden;
+      min-width: 270px;
+		}
+
+		&__img {
+      position: relative;
+      height: 0;
+      padding-top: 113%;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+		}
+
+		&__info {
+      padding: 16px;
+      background-color: #fff;
+		}
+
+		&__descr {
+      color: #5D5445;
+      display: block;
+      margin-bottom: 4px;
+		}
+
+		&__name {
+      display: block;
+      color: #30210A;
+      font-size: 24px;
+      margin-bottom: 24px;
+		}
+
+		&__price {
+      display: block;
+      color: #30210A;
+      font-size: 24px;
+      font-weight: 600;
+      font-family: var(--font-ui);
+      margin-bottom: 8px;
+		}
+}

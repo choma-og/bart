@@ -1,0 +1,149 @@
+.category {
+  position: relative;
+  &__container {
+    position: relative;
+    z-index: 2;
+  }
+  &-decor {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-auto-rows: minmax(290px, auto);
+		gap: 20px;
+	}
+
+	&__item {
+		display: flex;
+		min-height: 290px;
+
+		&--large {
+			grid-column: span 2;
+			grid-row: span 2;
+		}
+
+		&--wide {
+			grid-column: span 2;
+		}
+	}
+
+	&__link {
+		width: 100%;
+		min-height: 290px;
+		height: 100%;
+		padding: 20px;
+		border-radius: 16px;
+		background-color: #f3f0e2;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 20px;
+		position: relative;
+		overflow: hidden;
+		box-shadow: none;
+		transition: box-shadow 0.3s ease;
+
+		svg {
+			display: flex;
+			align-self: flex-end;
+			flex-shrink: 0;
+			position: relative;
+			z-index: 1;
+		}
+
+		&--image {
+			.category__head,
+			.category__value {
+				color: #fffdf4;
+			}
+		}
+
+		&:hover {
+			box-shadow:
+				0 43px 55px 0 rgba(71, 46, 22, 0.07),
+				0 25.32px 28.69px 0 rgba(129, 110, 92, 0.0506),
+				0 13px 13.46px 0 rgba(71, 46, 22, 0.0393),
+				0 5.23px 5.9px 0 rgba(71, 46, 22, 0.0307),
+				0 1.17px 2.55px 0 rgba(71, 46, 22, 0.0194);
+
+			.category__img img {
+				transform: scale(1.15);
+			}
+		}
+	}
+
+	&__img {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+    
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+      transition: transform 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+		}
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		z-index: 1;
+	}
+
+	&__head {
+		color: #30210a;
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 1.4;
+		margin-bottom: 4px;
+    transition: color .2s ease;
+	}
+
+	&__value {
+		color: #5d5445;
+		font-size: 16px;
+		line-height: 1.4;
+		font-family: var(--font-ui);
+		font-weight: 400;
+	}
+
+	@media (max-width: 1024px) {
+		&__list {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		&__item--large {
+			grid-column: span 2;
+			grid-row: span 2;
+		}
+
+		&__item--wide {
+			grid-column: span 2;
+		}
+	}
+
+	@media (max-width: 650px) {
+		&__list {
+			grid-template-columns: 1fr;
+			grid-auto-rows: auto;
+		}
+
+		&__item,
+		&__item--large,
+		&__item--wide {
+			grid-column: auto;
+			grid-row: auto;
+			min-height: 0;
+		}
+
+		&__link {
+			min-height: 290px;
+		}
+	}
+}

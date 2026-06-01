@@ -1,122 +1,122 @@
-
 .hero {
-  position: relative;
-  width: 100%;
-  padding-bottom: 60px;
-  @media  (max-width:650px) {
-    padding-bottom: 30px;
+  border-radius: 0 0 80px 80px;
+  padding-top: 0;
+  padding-bottom: 40px;
+  height: 100%;
+
+  &__container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0;
+    max-width: none;
   }
-  &::before {
-    content: '';
+  &__top {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+    padding: 40px 40px 40px 80px;
+    border-radius: 40px;
+    overflow: hidden;
+    min-height: 820px;
+    min-height: clamp(644px, 31.199rem + 22.28vw, 980px);
+    @media (max-width:1100px) {
+      padding: 40px;
+    }
+    @media (max-width:650px) {
+      padding: 20px;
+    }
+  }
+
+  &__link {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 140%;
+    background-color: #0E1100;
+    color: #fff;
+    border-radius: 40px;
+    font-weight: 500;
+  }
+  &__bg {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: calc(100% - 140px);
-    background-color: var(--color-accent);
+    inset: 0;
     z-index: 0;
   }
 
-  &__decor {
-    // display: none;
-    position: absolute;
-    left: 50%;
-    top: 0px;
-    z-index: 11;
-    transform: translateX(-50%);
-    @media(min-width:1600px) {
-      display: none;
-    }
-    @media(max-width:1300px) {
-      height: auto;
-      width: 1400px;
-    }
-    @media(max-width:996px) {
-      height: auto;
-      width: 1000px;
-    }
-  }
-  &__decor--big {
-    position: absolute;
-    left: 50%;
-    top: 0px;
-    z-index: 11;
-    transform: translateX(-50%);
-    @media(max-width:1600px) {
-      display: none;
-    }
+  &__bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8);
   }
 
-  &__content {
+  &__information {
     position: relative;
-    z-index: 12;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
   }
-  &__container {
-    padding-top: 350px;
-    padding-top: clamp(140px, -2.049rem + 26.58vw, 350px);
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
   }
-  &__wrapper {
-    @media (max-width:1250px) {
-      padding-left: 0px;
-    }
-  }
+
   &__title {
-    margin-bottom: 40px;
+    max-width: 590px;
+    font-family: "ZTC";
   }
-  &__info {
-    margin-bottom: 56px;
+  &__accent {
+    color: #809971;
+  }
+
+  &__descr {
+    color: #EBEBEB;
+    font-size: 20px;
+    line-height: 140%;
+  }
+
+  &__social {
+  }
+}
+.list-hero {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  &__item {
     display: flex;
     align-items: center;
-    @media (max-width:796px) {
-      flex-direction: column;
-      gap: 14px;
-      align-items: flex-start;
-      margin-bottom: 40px;
-    }
-    
+    max-width: 456px;
+    background-color: #FFFFFF;
+    padding: 4px;
+    border-radius: 20px ;
+    gap: 24px;
   }
-  &__adress {
-    color: #928D9D;
+  &__head {
+    color: #191919;
     font-size: 16px;
-  }
-  &__date {
-    color: #928D9D;
-    font-size: 16px;
-    margin-left: 65px;
-    display: block;
-    margin-left: clamp(30px, -12.516rem + 18.42vw, 65px);
-    @media (max-width:796px) {
-      margin: 0;
-    }
-  }
-  &__link {
-    display: flex;
-    align-items: center;
-    margin: 0 0 0 auto;
-    color: #EAE8EC;
-    gap: 10px;
-    transition: color .2s ease;
-    svg {
-      transform: translateX(0);
-      transition: transform .2s ease;
-    }
-    &:hover {
-      color: white;
-    }
-    &:hover svg{
-      transform: translateX(6px);
-      path {
-        stroke: white;
-      }
-    }
-    @media (max-width:796px) {
-      margin: 0;
-    }
+    line-height: 140%;
+    margin-bottom: 8px;
+    font-weight: 600;
   }
   &__img {
     position: relative;
     height: 0;
-    padding-top: 40%;
+    padding-top: 22%;
+    width: 100px;
+    flex: 1 0 100px;
     img {
       position: absolute;
       top: 0;
@@ -124,7 +124,24 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      border-radius: 15px;
     }
   }
+  &__text {
+    color: #484848;
+    font-size: 14px;
+    line-height: 1.4;
+  }
 }
-
+.hero__social--list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero__social__text{
+  margin-bottom: 16px;
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: #FFFFFF;
+}

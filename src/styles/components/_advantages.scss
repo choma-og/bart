@@ -1,0 +1,134 @@
+.advantages {
+  padding-bottom: 220px;
+		&__container {}
+		&__content {
+      position: relative;
+    }
+		&__img {
+      position: relative;
+      height: 0;
+      padding-top: 60%;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &__inner {
+      margin-bottom: 100px;
+    }
+    &__title {
+      font-family: "ZTC";
+      font-size: 100px;
+      color: #243506;
+      max-width: 580px;
+      line-height: 80%;
+      text-align: right;
+    }
+}
+.pl {
+}
+.advatages {
+		&__item {
+      position: absolute;
+      padding: 4px;
+      background-color: #FFFFFF;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      z-index: 2;
+      left: calc(var(--point-x, 50) * 1%);
+      top: calc(var(--point-y, 50) * 1%);
+      transform: translate(var(--shift-x, -50%), var(--shift-y, -50%));
+      min-width: 370px;
+      svg {
+        display: flex;
+            flex: 70px;
+      }
+      &--00 {
+        --point-x: 28;
+        --point-y: 12;
+        --shift-x: -50%;
+        --shift-y: -50%;
+      }
+      &--01 {
+        --point-x: 27;
+        --point-y: 39;
+        --shift-x: -100%;
+        --shift-y: -50%;
+
+      }
+      &--02 {
+        --point-x: 65;
+        --point-y: 1;
+        --shift-x: 0%;
+        --shift-y: -50%;
+        flex-direction: row-reverse;
+        & .advatages__info {
+          padding: 12px 26px 12px 0;
+          align-items: flex-start;
+        }
+      }
+      &--03 {
+        --point-x: 99;
+        --point-y: 66;
+        --shift-x: -100%;
+        --shift-y: -50%;
+          flex-direction: row-reverse;
+        & .advatages__info {
+          padding: 12px 26px 12px 0;
+          align-items: flex-start;
+        }
+      }
+      &--04 {
+        --point-x: 41;
+        --point-y: 99;
+        --shift-x: -50%;
+        --shift-y: -50%;
+        flex-direction: row-reverse;
+        & .advatages__info {
+          padding: 12px 26px 12px 0;
+          align-items: flex-start;
+        }
+      }
+    }
+		&__info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+      padding: 12px 0 12px 26px;
+    }
+		&__value {
+      color: #243506;
+      font-size: 16px;
+      font-weight: 600;
+      text-wrap: nowrap;
+    }
+		&__text {
+      font-size: 14px;
+      color: #6A705F;
+      line-height: 1.4;
+      text-wrap: nowrap;
+    }
+}
+
+@media (max-width: 991px) {
+  .advantages {
+    &__img {
+      padding-top: 70%;
+    }
+  }
+
+  .advatages {
+    &__item {
+      position: static;
+      transform: none;
+      margin-top: 12px;
+    }
+  }
+}

@@ -1,86 +1,55 @@
-<header class='header' id='header'>
-  <div class='header__container'>
-    <a href='/bart/index.html' class='header__logo logo'>
-      <svg
-        width='156'
-        height='24'
-        viewBox='0 0 156 24'
-        fill='none'
-        xmlns='http://www.w3.org/2000/svg'
-      >
-        <g clip-path='url(#clip0_2001_1978)'>
-          <path
-            fill-rule='evenodd'
-            clip-rule='evenodd'
-            d='M37.8171 23.6997H58.9277L62.2514 17.918H50.5052L57.3907 6.75342L66.9039 23.701H79.2232L65.1392 -0.00146103H52.8198L37.8159 23.6997H37.8171ZM82.4318 -0.00146103L79.1068 5.78027H84.4592V23.6997H95.0901V17.5256H107.635C121.068 17.5256 121.039 -0.00146103 107.635 -0.00146103L82.4318 -0.00146103ZM95.0901 11.7439V5.78027H102.978C108.232 5.78027 108.164 11.7439 102.978 11.7439H95.0901ZM0 23.6997H26.8873C38.3774 23.6997 38.3696 9.02583 27.1034 9.02583H10.631V5.78027H32.1607L35.4845 -0.00146103H0V23.6997ZM10.631 17.918V14.1151H22.6114C25.5638 14.1151 25.4318 17.918 22.6114 17.918H10.631ZM155.253 -0.00146103H122.394L119.07 5.78027H131.848V23.6997H142.479V5.78027H151.931L155.255 -0.00146103H155.253Z'
-            fill='white'
-          />
-        </g>
-        <defs>
-          <clipPath id='clip0_2001_1978'>
-            <rect width='155.253' height='23.6011' fill='white' />
-          </clipPath>
-        </defs>
-      </svg>
-    </a>
-    <nav class='header__menu menu'>
-      <div class='menu__icon'>
+<header class="header ">
+  <div class="header__container">
+    <nav class="header__menu menu">
+      <div class="menu__icon">
         <span></span>
       </div>
-      <div class='menu__body'>
-        <ul class='menu__list'>
-          <li class='menu__item'>
-            <a data-goto='.objects' href='' class='menu__link'>
-              Объекты
+      <div class="menu__body">
+        <ul class="menu__list">
+          <li class="menu__item">
+            <a data-goto=".category" href="#category" class="menu__link">
+              Каталог
             </a>
           </li>
-          <li class='menu__item'>
-            <a data-goto='.flats' href='' class='menu__link'>
-              Квартиры
+          <li class="menu__item">
+            <a data-goto=".quality" href="#quality" class="menu__link">
+              О бренде
             </a>
           </li>
-          <li class='menu__item'>
-            <a data-goto='.about' href='' class='menu__link'>
-              О компании
+          <li class="menu__item">
+            <a data-goto=".sertificate" href="#sertificate" class="menu__link">
+              Сертификаты
             </a>
           </li>
-          <li class='menu__item'>
-            <a data-goto='.news' href='' class='menu__link'>
-              Новости
+          <li class="menu__item">
+            <a data-goto=".reviews" href="#reviews" class="menu__link">
+              отзывы
             </a>
           </li>
-          <li class='menu__item'>
-            <a data-goto='.contcts' href='' class='menu__link'>
+          <li class="menu__item">
+            <a data-goto=".contacts" href="#contacts" class="menu__link">
               Контакты
             </a>
           </li>
         </ul>
       </div>
     </nav>
-    <div class='header__right'>
-      <div class='header__love'>
-        <svg
-          width='24'
-          height='21'
-          viewBox='0 0 24 21'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-        >
-          <path
-            d='M12.4599 1.8613C14.9417 -0.620435 18.9655 -0.620435 21.4472 1.8613C23.9288 4.34306 23.9289 8.36694 21.4472 10.8486L20.6406 11.6533L20.6523 11.665L11.665 20.6523L11.6533 20.6406L11.6425 20.6523L2.65524 11.665L2.66599 11.6533L1.8613 10.8486C-0.620437 8.36687 -0.620428 4.34304 1.8613 1.8613C4.34304 -0.620435 8.36686 -0.620435 10.8486 1.8613L11.6533 2.66599L12.4599 1.8613Z'
-            fill='#928D9D'
-          />
+    <a class="header__logo" href="">
+      <img src="/public/img/logo.png" alt="">
+    </a>
+    <div class="header___info">
+      <span class="header__adress">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M15.3953 2.61023C16.7196 2.13724 17.9984 3.41599 17.5254 4.74035L13.0975 17.1384C12.5525 18.6645 10.3706 18.5938 9.92543 17.0357L8.40866 11.727L3.09995 10.2102C1.54182 9.76502 1.47118 7.58312 2.99726 7.03809L15.3953 2.61023ZM11.528 16.5778L15.9558 4.1798L3.55782 8.60766L8.86653 10.1244C9.42021 10.2826 9.85301 10.7154 10.0112 11.2691L11.528 16.5778Z" fill="#608819"/>
         </svg>
-        <span class='header__love--count'>2</span>
-      </div>
-      <div class='header__info'>
-        <a class='header__phone' href=''>8 (3852) 566-766</a>
-        <a class='js-open-call header__call' href=''>Заказать звонок</a>
-      </div>
+        г. Барнаул, ТРЦ &laquo;Арена&raquo;
+      </span>
+      <a class="btn header__btn btn-reset btn-secondary" href="">
+        Напишите нам
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M1.6665 4.16663C1.6665 2.78591 2.78579 1.66663 4.1665 1.66663H15.8332C17.2139 1.66663 18.3332 2.78591 18.3332 4.16663V12.9292C18.3332 14.0729 17.406 15 16.2624 15H15.8332V17.4328C15.8332 18.1315 15.0249 18.52 14.4793 18.0835L10.6249 15H4.1665C2.78579 15 1.6665 13.8807 1.6665 12.5V4.16663ZM4.1665 5.83329C4.1665 5.37306 4.5396 4.99996 4.99984 4.99996H13.3332C13.7934 4.99996 14.1665 5.37306 14.1665 5.83329C14.1665 6.29353 13.7934 6.66663 13.3332 6.66663H4.99984C4.5396 6.66663 4.1665 6.29353 4.1665 5.83329ZM4.1665 9.16663C4.1665 8.70639 4.5396 8.33329 4.99984 8.33329H9.99984C10.4601 8.33329 10.8332 8.70639 10.8332 9.16663C10.8332 9.62686 10.4601 9.99996 9.99984 9.99996H4.99984C4.5396 9.99996 4.1665 9.62686 4.1665 9.16663Z" fill="#608819"/>
+        </svg>
+      </a>
     </div>
   </div>
-  <script>
-    (function(){if(window.innerWidth>=1250)return;var i=document.querySelector('.header__info');var
-    m=document.querySelector('.menu__body');if(i&&m)m.appendChild(i);})();
-  </script>
 </header>

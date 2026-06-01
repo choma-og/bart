@@ -12,12 +12,6 @@ const pageData = {
   "/index.html": {
     isHome: true,
   },
-  "/src/pages/appart.html": {
-    isHome: false,
-  },
-  "/src/pages/appart-detail.html": {
-    isHome: false,
-  },
 };
 
 // @see https://github.com/vitejs/vite/issues/5815
@@ -35,7 +29,7 @@ export default defineConfig({
     host: true,
     port: 8888,
   },
-  base: '/bart/',
+  base: '/darling/',
   optimizeDeps: {
     include: ['ymaps'],
   },
@@ -46,8 +40,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: resolve(__dirname, "index.html"),
-        appart: resolve(__dirname, "src", "pages", "appart.html"),
-        appartDetail: resolve(__dirname, "src", "pages", "appart-detail.html"),
       },
       output: {
         assetFileNames: (assetInfo) => {

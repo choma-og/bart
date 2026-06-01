@@ -1,0 +1,85 @@
+.catalog-item {
+
+		&__container {
+		}
+
+		&__inner {
+      margin-bottom: 80px;
+		}
+
+    &__label {
+      display: block;
+      margin-bottom: 16px;
+      font-size: 20px;
+      color: #608819;
+      line-height: 1.4;
+    }
+
+		&__title {
+      font-family: "ZTC";
+      font-size: 64px;
+      line-height: 98%;
+      color: #243506;
+		}
+
+		&__content {
+      margin-bottom: 80px;
+		}
+
+		&__list {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+		}
+
+		&__item {
+		}
+
+		&__img {
+      position: relative;
+      height: 0;
+      padding-top: 112%;
+      margin-bottom: 24px;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 300px 300px 0 0;
+      }
+		}
+
+		&__value {
+      display: block;
+      margin-bottom: 8px;
+      color: #5D5445;
+      
+		}
+
+		&__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+		}
+
+		&__spec {
+      color: #30210A;
+      font-size: 24px;
+      font-family: var(--font-ui);
+		}
+
+		&__price {
+      color: #30210A;
+      font-size: 24px;
+      font-family: var(--font-ui);
+      font-weight: 600;
+		}
+
+		&__link {
+
+		}
+}

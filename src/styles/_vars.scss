@@ -1,8 +1,13 @@
 :root  {
+  --font-display: "ZTC", Georgia, serif;
+  --font-body: "Involve", system-ui, -apple-system, sans-serif;
+  --font-ui: "Inter", system-ui, -apple-system, sans-serif;
+
   --color-white: #fff;
   --color-black: #000;
-  --colog-bg: #fff;
-  --color-text: #212F24;
-  --color-accent: #26202E;
-  --color-gray: #EAE8EC;
+  --colog-bg: #FFFDF4;
+  --color-text: #50614A;
+  --color-accent: #243506;
+  --color-sec-accent: #608819;
+  --color-gray: #909194;
 }

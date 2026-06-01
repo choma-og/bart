@@ -1,0 +1,124 @@
+.questions {
+  position: relative;
+  &-decor {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+		&__container {
+		}
+
+		&__list {
+      max-width: 768px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      // gap: 20px;
+      position: relative;
+      z-index: 1;
+		}
+
+		&__item {
+      padding-top: 20px;
+      padding-bottom: 10px;
+      position: relative;
+      &:not(:first-child)::before {
+        position: absolute;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #E4E1D6;
+        content: "";
+      }
+		}
+
+		&__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      width: 100%;
+      padding: 0;
+      border: none;
+      background: none;
+      text-align: left;
+      cursor: pointer;
+      font: inherit;
+      color: inherit;
+      transition: all .2s ease;
+      h3 {
+        color: #243506;
+        font-size: 20px;
+        font-weight: 500;
+        font-family: "Involve";
+        margin: 0;
+      }
+      &:hover h3{
+        color: var(--color-sec-accent);
+      }
+		}
+
+		&__pin {
+      flex-shrink: 0;
+
+      &-icon {
+        display: block;
+
+        &--minus {
+          display: none;
+        }
+      }
+		}
+
+		&__answer {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s ease;
+
+      > p {
+        overflow: hidden;
+        min-height: 0;
+        margin: 0;
+        padding-top: 0;
+        opacity: 0;
+        transition: opacity 0.25s ease, padding-top 0.35s ease;
+        color: #6A705F;
+        font-size: 16px;
+        line-height: 1.4;
+        font-family: "Involve";
+        font-weight: 500;
+        max-width: 630px;
+      }
+		}
+
+    &__item--open {
+      .questions__answer {
+        grid-template-rows: 1fr;
+
+        > p {
+          padding-top: 16px;
+          opacity: 1;
+        }
+      }
+
+      .questions__pin-icon--plus {
+        display: none;
+      }
+
+      .questions__pin-icon--minus {
+        display: block;
+      }
+    }
+}
+.section {
+
+		&__inner {
+		}
+
+		&__label {
+		}
+
+		&__title {
+		}
+}
